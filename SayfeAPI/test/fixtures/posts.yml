@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  disaster_id: 1
+  user_id: 1
+  intensity: MyString
+  desc: MyText
+  longtitude: 9.99
+  latitude: 9.99
+
+two:
+  disaster_id: 1
+  user_id: 1
+  intensity: MyString
+  desc: MyText
+  longtitude: 9.99
+  latitude: 9.99
