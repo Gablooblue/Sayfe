@@ -22,6 +22,8 @@ gem 'bcrypt', platforms: :ruby
 
 gem 'devise'
 
+gem 'rack-cors', :require => 'rack/cors'
+
 gem 'devise_token_auth'
 
 gem 'omniauth'

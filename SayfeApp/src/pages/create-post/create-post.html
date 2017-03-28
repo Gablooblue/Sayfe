@@ -1,0 +1,37 @@
+<!--
+  Generated template for the CreatePost page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Create Post</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form (ngSubmit) = "postForm()" [formGroup] = 'post'>
+	<ion-item>
+	    <ion-label>Disaster</ion-label>
+	    <ion-select formControlName = "disaster_id">
+		<ion-option *ngFor = 'let disaster of disasters' value={{disaster.id}}>{{disaster.title}}</ion-option>
+	    </ion-select>
+	</ion-item>
+	<ion-item>
+	    <ion-label>Intensity</ion-label>
+	    <ion-select formControlName = "intensity">
+		<ion-option value = "Low">Low</ion-option>
+		<ion-option value = "Medium">Medium</ion-option>
+		<ion-option value = "High">High</ion-option>
+	    </ion-select>
+	</ion-item>
+	<ion-item>
+	    <ion-textarea formControlName="desc"></ion-textarea>
+	</ion-item>
+	<button ion-button type="submit" block>Submit</button>
+    </form>
+</ion-content>

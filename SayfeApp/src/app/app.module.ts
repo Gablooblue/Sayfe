@@ -7,6 +7,11 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
+import { PostsPage } from '../pages/posts/posts';
+import { DetailsPage } from '../pages/details/details';
+import { DisastersPage } from '../pages/disasters/disasters';
+import { DisasterPage } from '../pages/disaster/disaster';
+import { CreatePostPage } from '../pages/create-post/create-post';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -19,7 +24,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     TabsPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    PostsPage,
+    DetailsPage,
+    DisastersPage,
+    DisasterPage,
+    CreatePostPage,
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -32,7 +42,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     TabsPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    PostsPage,
+    DetailsPage,
+    DisastersPage,
+    DisasterPage,
+    CreatePostPage,
   ],
   providers: [
     StatusBar,
