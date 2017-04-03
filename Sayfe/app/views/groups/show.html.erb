@@ -1,0 +1,31 @@
+<div class = "container" style = "padding-top:60px;">
+    <div class = "panel panel-default">
+	<div class = "panel-body">
+	    <h2><%= group.name %> </h2>
+	    <p><%= group.desc %> </p>
+	</div>
+    </div>
+
+    <div class = "container">
+	<div class = "col-md-2">
+	    <div class = "panel panel-default">
+		<div class = "panel-body">
+		    <h3 class = "text-center">Members</h3>
+		</div>
+	    </div>
+	</div>
+
+	<div class = "col-md-8">
+	    <div class = "pnael panel-default">
+		<div class ="panel-body">
+		    <h3 class = "text-center">Announcements</h3>
+		    <% @group.announcements.each do |announcement %>
+			<h4> <%= announcement.title %> </h4>
+			<p> <%= announcement.user.email %> </p>
+			<p> <%= announcement.desc %> </p>
+		    <% end %>
+		</div>
+	    </div>
+	</div>
+    </div>
+</div>
