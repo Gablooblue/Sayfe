@@ -14,15 +14,16 @@
 <ion-content padding>
     <ion-grid>
 	<ion-col col-md-6 col-sm-12  style= "margin: 0 auto;">
-	    <form (ngSubmit) = "login()" [formGroup] = 'login'>
+	    <ion-item *ngIf ="error"> {{ error.errors }} </ion-item>
+	    <form (ngSubmit) = "loginUser()" [formGroup] = 'user_login'>
 		<ion-item>
-		    <ion-label floating>Username</ion-label>
-		    <ion-input formControlName = "username" type="text"></ion-input>
+		    <ion-label floating>E-mail</ion-label>
+		    <ion-input formControlName = "email" type="text"></ion-input>
 		</ion-item>
 
 		<ion-item>
 		    <ion-label floating>Password</ion-label>
-		    <ion-input formControlname="password" type="password"></ion-input>
+		    <ion-input formControlName="password" type="password"></ion-input>
 		</ion-item>
 		<ion-item>
 		    <button ion-button type = "submit" block>Login</button>

@@ -15,6 +15,9 @@ import { CreatePostPage } from '../pages/create-post/create-post';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Auth } from '../providers/auth';
+import { Posts } from '../providers/posts';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     CreatePostPage,
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -52,6 +56,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    Auth,
+    Posts,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

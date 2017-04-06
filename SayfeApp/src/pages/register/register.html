@@ -13,14 +13,17 @@
 <ion-content padding>
     <ion-grid>
 	<ion-col col-md-6 col-sm-12  style= "margin: 0 auto;">
-	    <form (ngSubmit) = "register()" [formGroup] = 'register'>
+	    <ion-list *ngIf="error">
+		<ion-item  *ngFor= "let errors of error.full_messages"> {{ errors }} </ion-item>
+	    </ion-list>
+	    <form (ngSubmit) = "registerUser()" [formGroup] = 'user_register'>
 		<ion-item>
-		    <ion-label floating>Name</ion-label>
-		    <ion-input formControlName= "name" type="text"></ion-input>
+		    <ion-label floating>First name</ion-label>
+		    <ion-input formControlName= "first_name" type="text"></ion-input>
 		</ion-item>
 		<ion-item>
-		    <ion-label floating>Username</ion-label>
-		    <ion-input formControlName="username" type="text"></ion-input>
+		    <ion-label floating>Last name</ion-label>
+		    <ion-input formControlName= "last_name" type="text"></ion-input>
 		</ion-item>
 		<ion-item>
 		    <ion-label floating>E-mail</ion-label>
@@ -32,12 +35,12 @@
 		</ion-item>
 		<ion-item>
 		    <ion-label floating>Confirm password</ion-label>
-		    <ion-input formControlName= "confirmpassword" type="password"></ion-input>
+		    <ion-input formControlName= "password_confirmation" type="password"></ion-input>
 		</ion-item>
 		<ion-item>
 		    <button ion-button type="submit" block>Sign up</button> 
 		</ion-item>
-	    </ion-list>
+	    </form>
 	</ion-col>
     </ion-grid>
 </ion-content>

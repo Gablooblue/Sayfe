@@ -7,15 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Disaster.create(title: 'swag', desc: 'what');
-Disaster.create(title: 'sswag', desc: 'what');
-Disaster.create(title: 'ssawag', desc: 'what');
-Disaster.create(title: 'swaasdg', desc: 'what');
-Disaster.create(title: 'swasdsag', desc: 'what');
 
- Disaster.create(title: 'test', desc: 'what');
-
-Disaster.create(title: 'shit', desc: 'shit');
-
+User.create(email: 'test@test.com', password:'testtest', password_confirmation: 'testtest')
+User.create(email: 'gabloogame@gmail.com', password:'testtest', password_confirmation: 'testtest')
 
 Post.create(intensity: "test", desc: 'test', longtitude: 1, latitude: 2, disaster_id: 1, user_id: 2);
 
