@@ -1,0 +1,18 @@
+<div class = "container" style = "padding-top: 60px">
+    <div class = "panel panel-default">
+	<div class = "panel-body">
+	    <h2 class = "text-center">Friends</h2>
+	</div>
+    </div>
+
+    <div class = "panel panel-default">
+	<div class = "panel-body">
+	    <ul class = "list-group">
+		<%= @friends.each do |friend| %>
+		    <li class = "list-group-item"> <%= friend.friend.email %> </li>
+		<% end %>
+	    </ul>
+	</div>
+    </div>
+</div>
+</div>

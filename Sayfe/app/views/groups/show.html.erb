@@ -1,0 +1,29 @@
+<div class = "container">
+<p id="notice"><%= notice %></p>
+
+
+  <div class="panel panel-default">
+      <div class = "panel-body">
+	  <ul class="list-group">
+	      <h2> Title: <%= @group.title %><h2>
+	      <li class="list-group-item">Desc:  <%= @group.desc %></li>
+	  </ul>
+      </div>
+  </div>
+
+    <div class = "panel panel-default">
+	<div class = "panel-body">
+	    <h2 class = "text-center"> Members </h2>
+		<ul class = "list-group">
+		    <%= @members.each do |member| %>
+		    <li class = "list-group-item"><%= member.email %> </li>
+		    <% end %>
+		</ul>
+	</div>
+    </div>
+
+
+
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>
+</div>

@@ -1,0 +1,21 @@
+
+<div >
+  <div id="map" style='width: 100%; height: 90%; position:absolute;'></div>
+</div>
+
+<script>
+handler = Gmaps.build('Google');
+handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+</script>
+
+<div class = "container" style="padding-top:60px;">
+    <ul class = "list-group">
+	<% @users.each do |user| %>
+	<li class = "list-group-item"><%= user.email %> <%= link_to "Add friend", friendships_path(:friend_id => user), :method	=> :post %></li>
+	<% end %>
+    </ul>
+</div>
