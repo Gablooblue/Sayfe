@@ -1,5 +1,7 @@
-$navbar-default-bg: red;
-$navbar-default-color: black;
-
+@import "main";
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+$navbar-default-bg: black;
+$navbar-default-color: black;
+

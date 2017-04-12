@@ -71,6 +71,7 @@ GEM
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     gmaps4rails (2.1.2)
+    groupify (0.8.0)
     hashie (3.5.5)
     i18n (0.8.1)
     jbuilder (2.6.3)
@@ -163,7 +164,7 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
-    uglifier (3.1.13)
+    uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)
@@ -187,6 +188,7 @@ DEPENDENCIES
   devise
   devise_token_auth
   gmaps4rails
+  groupify
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
