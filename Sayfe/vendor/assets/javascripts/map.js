@@ -1,9 +1,5 @@
-
-<div >
-  <div id="map" style='width: 100%; height: 100%; position:absolute;'></div>
-</div>
-
-<script>
+function()
+{
     var mapStyle = 
     [
       {
@@ -48,17 +44,6 @@
 	  }
 	]
       },
-    {
-	"featureType": "landscape.natural",
-	"elementType": "geometry.fill",
-	"stylers": 
-	[
-	    {
-		"color": "#ffffff"
-	    }
-	]
-
-    },
       {
 	"featureType": "landscape.natural",
 	"elementType": "labels.text.fill",
@@ -148,7 +133,7 @@
 	"elementType": "labels.icon",
 	"stylers": [
 	  {
-	    "weight": 3
+	    "weight": 8
 	  }
 	]
       },
@@ -157,7 +142,7 @@
 	"elementType": "labels.text",
 	"stylers": [
 	  {
-	    "weight": 3
+	    "weight": 8
 	  }
 	]
       },
@@ -169,7 +154,7 @@
 	    "color": "#ff0000"
 	  },
 	  {
-	    "weight": 3
+	    "weight": 8
 	  }
 	]
       },
@@ -181,7 +166,7 @@
 	    "color": "#ffffff"
 	  },
 	  {
-	    "weight": 3
+	    "weight": 8
 	  }
 	]
       },
@@ -313,23 +298,9 @@
       }
     ];
     handler = Gmaps.build('Google');
-    handler.buildMap({ 
-	provider:
-	{ 
-	    styles: mapStyle 
-	}, 
-	internal:
-	{
-	    id: 'map'
-	}
-    }, 
-    function()
-    {
+    handler.buildMap({ provider: { styles: mapStyle }, internal: {id: 'map'}}, function(){
       markers = handler.addMarkers(<%=raw @hash.to_json %>);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
     });
-</script>
-
-
-
+}

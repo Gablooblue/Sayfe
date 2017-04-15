@@ -1,7 +1,49 @@
-@import "main";
-@import "bootstrap-sprockets";
-@import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Droid+Sans|Open+Sans');
 
-$navbar-default-bg: black;
-$navbar-default-color: black;
+$color-red-dull: #D70027;
+$color-red-bright: #E40028;
+$navbar-default-bg: #FFFFFF;
+$navbar-default-link-color: black;
+$navbar-default-link-hover-color: $color-red-dull;
+$navbar-default-brand-color: $color-red-bright;
+$font-family-sans-serif: 'Open Sans', sans-serif;
+$body-bg:#FCFDFE;
+$navbar-border-color: $color-red-dull;
+$text-color:#000B29;
+
+#panel-border-top
+{
+    border-top-color:$color-red-dull;
+    border-width:1px;
+}
+
+#panel-border-bottom
+{
+    border-bottom-color:$color-red-dull;
+    border-width:1px;
+}
+
+#panel-default-border
+{
+    border-bottom-color:$color-red-dull;
+    border-top-color:$color-red-dull;
+    border-width:1px;
+}
+
+#panel-heading
+{ 
+   background-color:#FFFFFF;  
+   border-bottom-color:$color-red-dull;
+   color:$color-red-bright;
+}
+
+#myToolbar
+{
+    border-bottom-color: $color-red-dull;
+    border-width:1px;
+    font-family: "Droid Sans", sans-serif;
+}
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
 

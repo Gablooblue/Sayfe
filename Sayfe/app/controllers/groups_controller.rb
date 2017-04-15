@@ -7,16 +7,20 @@ class GroupsController < ApplicationController
     end
 
     def show
+	@members = User.in_group(set_group)
+    end
+
+    def new
+	@group = Group.new
     end
 
     def create
 	@group = Group.new(group_params)
-	@group.add current_user
-
 	respond_to do |format|
 	    if @group.save
-		format.html { redirect_to @group, ntoice: 'Group created' }
+		format.html { redirect_to @group, notice: 'Group created' }
 		format.json { render :show, status: :created, location: @group }
+		@group.add(current_user, as: "admin")
 	    else
 		format.html {render :new}
 		format.json { render json: @group.errors, status: :unprocessable_entity }

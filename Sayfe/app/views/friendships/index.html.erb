@@ -8,8 +8,8 @@
     <div class = "panel panel-default">
 	<div class = "panel-body">
 	    <ul class = "list-group">
-		<%= @friends.each do |friend| %>
-		    <li class = "list-group-item"> <%= friend.friend.email %> </li>
+		<% @friends.each do |friend| %>
+		    <li class = "list-group-item"> <%= friend.friend.first_name%>, <%= friend.friend.last_name %> </li>
 
 		<% end %>
 	    </ul>

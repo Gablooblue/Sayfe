@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
+  resources :announcements
   resources :friendships
-  devise_for :users
+  devise_for :users, controllers:{
+      registrations: 'users/registrations',
+      sessions: 'users/sessions'
+  }
   resources :posts
   resources :disasters
-  resources :groups
+  resources :groups do
+      resources :announcements
+  end
 
   resources :home, :only => :index
 
