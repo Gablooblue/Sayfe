@@ -81,11 +81,23 @@ header .device-container .screen img {
 {
     padding-top: 5%;
     padding-bottom:5%;
-    h2
+    color:$color-pearl;
+    font-family: 'Open Sans', sans-serif;
+    @media only screen and (min-width: 200px)
     {
-	font-family: 'Open Sans', sans-serif;
-	font-size:40px;
-	color:$color-pearl;
+	h2 {font-size:15px;}
+    }
+    @media only screen and (min-width: 400px)
+    {
+	h2{ font-size:20px; }
+    }
+    @media only screen and (min-width: 778px)
+    {
+	h2{font-size:30px;}
+    }
+    @media only screen and (min-width: 992px )
+    {
+	h2{font-size:40px;}
     }
 }
 

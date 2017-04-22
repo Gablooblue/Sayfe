@@ -8,8 +8,6 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
-gem 'groupify'
-gem 'sprockets'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -17,6 +15,7 @@ gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass' 
 gem 'autoprefixer-rails'
+gem 'sprockets'
 
 gem 'sass-rails' 
 # Use Uglifier as compressor for JavaScript assets
@@ -34,10 +33,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
-gem 'gmaps4rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -55,15 +51,20 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+#Authentication
 gem 'bcrypt', platforms: :ruby
-
 gem 'devise'
-
-gem 'rack-cors', :require => 'rack/cors'
-
-gem 'devise_token_auth'
-
 gem 'omniauth'
 
+#API gems
+gem 'rack-cors', :require => 'rack/cors'
+gem 'devise_token_auth'
+
+#Social media 
+gem 'groupify'
+
+#Maps and locations
+gem 'gmaps4rails'
+gem 'geocoder'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
