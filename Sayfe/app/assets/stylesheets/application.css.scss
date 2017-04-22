@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Droid+Sans|Open+Sans');
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
 
 $color-red-dull: #D70027;
 $color-red-bright: #E40028;
@@ -44,6 +46,4 @@ $text-color:#000B29;
     font-family: "Droid Sans", sans-serif;
 }
 
-@import 'bootstrap-sprockets';
-@import 'bootstrap';
 

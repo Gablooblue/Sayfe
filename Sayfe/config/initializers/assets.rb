@@ -12,3 +12,4 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( groups.scss )
 Rails.application.config.assets.precompile += %w( sidebar.css )
 Rails.application.config.assets.precompile += %w( map.js )
+Rails.application.config.assets.precompile += %w( splash.scss )
