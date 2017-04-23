@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Droid+Sans|Open+Sans');
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
 
 //Brand colors
 $color-red-dull: #D70027;
@@ -12,9 +14,9 @@ $navbar-default-brand-color: $color-red-bright;
 $navbar-border-color: $color-red-dull;
 #myToolbar
 {
-    border-bottom-color: $color-red-dull;
-    border-width:1px;
-    font-family: "Droid Sans", sans-serif;
+  border-bottom-color: $color-red-dull;
+  border-width:1px;
+  font-family: "Droid Sans", sans-serif;
 }
 
 //fonts
@@ -26,27 +28,25 @@ $body-bg:#FCFDFE;
 //Panels
 #panel-border-top
 {
-    border-top-color:$color-red-dull;
-    border-width:1px;
+  border-top-color:$color-red-dull;
+  border-width:1px;
 }
 #panel-border-bottom
 {
-    border-bottom-color:$color-red-dull;
-    border-width:1px;
+  border-bottom-color:$color-red-dull;
+  border-width:1px;
 }
 
 #panel-default-border
 {
-    border-bottom-color:$color-red-dull;
-    border-top-color:$color-red-dull;
-    border-width:1px;
+  border-bottom-color:$color-red-dull;
+  border-top-color:$color-red-dull;
+  border-width:1px;
 }
 #panel-heading
 { 
-   background-color:#FFFFFF;  
-   border-bottom-color:$color-red-dull;
-   color:$color-red-bright;
+  background-color:#FFFFFF;  
+  border-bottom-color:$color-red-dull;
+  color:$color-red-bright;
 }
 
-@import 'bootstrap-sprockets';
-@import 'bootstrap';
