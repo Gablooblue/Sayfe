@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @group_invite.user_id %>
+</p>
+
+<p>
+  <strong>Group:</strong>
+  <%= @group_invite.group_id %>
+</p>
+
+<p>
+  <strong>Inviter:</strong>
+  <%= @group_invite.inviter_id %>
+</p>
+
+<%= link_to 'Edit', edit_group_invite_path(@group_invite) %> |
+<%= link_to 'Back', group_invites_path %>

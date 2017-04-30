@@ -36,12 +36,15 @@
 					<li><%= link_to "Login", new_user_session_path %></li>
 					<li><%= link_to "Sign Up", new_user_registration_path %></li>
 				    <% else %>
-					<li><a href="#">
-						<span class = "gylphicon glyphicon-search" style="font-size:30px; color: #D70026;"></span> 
-					</a></li>
+					<li>
+					    <%= link_to 'Requests', friend_requests_path %>
+					</li>
+					<li><a href= "#">Notifications </a>
+					    
+					</li>
 					<li class = "dropdown">
 					    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						<%= current_user.email %>
+						<%= current_user.first_name %> <span class = "caret"></span>
 					    </a>
 						<ul class = "dropdown-menu">
 							<!--<li> <a href= "{{ url('/account') }}">Account</a></li>-->

@@ -8,13 +8,12 @@
     <div class= "panel panel-default">
 	<div class = "panel-body">
 	    <% if @groups.blank? %>
-		<h4 class = "text-center"><i>You're currently not part of any groups</i></h2>
+		<h4 class = "text-center"><i>You're currently not part of any groups</i></h4>
 	    <% else %>
-		<ul class ="list-group">
 		    <% @groups.each do |group| %>  
-			<li class = "list-group-item"> <%= group.name %> <% link_to 'Show', group %> </li>
+			<h4><%= link_to group.name, group %> </h4>
+			<hr>
 		    <% end %>
-		</ul>
 	    <% end %>
 	</div>
     </div>

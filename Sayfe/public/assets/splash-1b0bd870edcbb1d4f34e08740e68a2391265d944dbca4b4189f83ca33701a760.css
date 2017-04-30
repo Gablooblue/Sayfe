@@ -1,0 +1,137 @@
+/* line 5, /home/gablooblue/Projects/Sayfe/Sayfe/app/assets/stylesheets/splash.scss */
+header {
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  overflow-y: hidden;
+  background: url("/assets/bg-pattern-369e2fea2fdb00eb15301e187e55aa4e7cf4854dc7b665f43b874093c10cddd7.png"), #D70026;
+  /* fallback for old browsers */
+  background: url("/assets/bg-pattern-369e2fea2fdb00eb15301e187e55aa4e7cf4854dc7b665f43b874093c10cddd7.png"), -webkit-linear-gradient(to right, #D70026, #F8F5F2);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: url("/assets/bg-pattern-369e2fea2fdb00eb15301e187e55aa4e7cf4854dc7b665f43b874093c10cddd7.png"), -webkit-linear-gradient(left, #D70026, #F8F5F2);
+  background: url("/assets/bg-pattern-369e2fea2fdb00eb15301e187e55aa4e7cf4854dc7b665f43b874093c10cddd7.png"), linear-gradient(to right, #D70026, #F8F5F2);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+}
+
+/* line 19, /home/gablooblue/Projects/Sayfe/Sayfe/app/assets/stylesheets/splash.scss */
+header .header-content {
+  text-align: center;
+  padding: 150px 0 50px;
+  position: relative;
+}
+
+/* line 24, /home/gablooblue/Projects/Sayfe/Sayfe/app/assets/stylesheets/splash.scss */
+header .header-content .header-content-inner {
+  font-family: 'Open Sans', sans-serif;
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* line 30, /home/gablooblue/Projects/Sayfe/Sayfe/app/assets/stylesheets/splash.scss */
+header .header-content .header-content-inner h1 {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+
+/* line 35, /home/gablooblue/Projects/Sayfe/Sayfe/app/assets/stylesheets/splash.scss */
+header .header-content .header-content-inner .list-badges {
+  margin-bottom: 25px;
+}
+
+/* line 38, /home/gablooblue/Projects/Sayfe/Sayfe/app/assets/stylesheets/splash.scss */
+header .header-content .header-content-inner .list-badges img {
+  height: 50px;
+  margin-bottom: 25px;
+}
+
+/* line 42, /home/gablooblue/Projects/Sayfe/Sayfe/app/assets/stylesheets/splash.scss */
+header .device-container {
+  max-width: 300px;
+  margin: 0 auto 100px;
+}
+
+/* line 46, /home/gablooblue/Projects/Sayfe/Sayfe/app/assets/stylesheets/splash.scss */
+header .device-container .screen img {
+  border-radius: 3px;
+}
+
+@media (min-width: 768px) {
+  /* line 50, /home/gablooblue/Projects/Sayfe/Sayfe/app/assets/stylesheets/splash.scss */
+  header {
+    min-height: 100%;
+  }
+
+  /* line 53, /home/gablooblue/Projects/Sayfe/Sayfe/app/assets/stylesheets/splash.scss */
+  header .header-content {
+    text-align: left;
+    padding: 0;
+    height: 100vh;
+  }
+
+  /* line 58, /home/gablooblue/Projects/Sayfe/Sayfe/app/assets/stylesheets/splash.scss */
+  header .header-content .header-content-inner {
+    max-width: none;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+
+  /* line 65, /home/gablooblue/Projects/Sayfe/Sayfe/app/assets/stylesheets/splash.scss */
+  header .header-content .header-content-inner h1 {
+    font-size: 35px;
+  }
+
+  /* line 68, /home/gablooblue/Projects/Sayfe/Sayfe/app/assets/stylesheets/splash.scss */
+  header .device-container {
+    max-width: none;
+    max-height: calc(0vh);
+    margin: 100px auto 0;
+  }
+}
+@media (min-width: 992px) {
+  /* line 75, /home/gablooblue/Projects/Sayfe/Sayfe/app/assets/stylesheets/splash.scss */
+  header .header-content .header-content-inner h1 {
+    font-size: 50px;
+  }
+}
+/* line 80, /home/gablooblue/Projects/Sayfe/Sayfe/app/assets/stylesheets/splash.scss */
+.h2-content {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  color: #F8F5F2;
+  font-family: 'Open Sans', sans-serif;
+}
+@media only screen and (min-width: 200px) {
+  /* line 88, /home/gablooblue/Projects/Sayfe/Sayfe/app/assets/stylesheets/splash.scss */
+  .h2-content h2 {
+    font-size: 15px;
+  }
+}
+@media only screen and (min-width: 400px) {
+  /* line 92, /home/gablooblue/Projects/Sayfe/Sayfe/app/assets/stylesheets/splash.scss */
+  .h2-content h2 {
+    font-size: 20px;
+  }
+}
+@media only screen and (min-width: 778px) {
+  /* line 96, /home/gablooblue/Projects/Sayfe/Sayfe/app/assets/stylesheets/splash.scss */
+  .h2-content h2 {
+    font-size: 30px;
+  }
+}
+@media only screen and (min-width: 992px) {
+  /* line 100, /home/gablooblue/Projects/Sayfe/Sayfe/app/assets/stylesheets/splash.scss */
+  .h2-content h2 {
+    font-size: 40px;
+  }
+}
+
+/* line 104, /home/gablooblue/Projects/Sayfe/Sayfe/app/assets/stylesheets/splash.scss */
+.yellow-bg {
+  background-color: #EDB83D;
+}

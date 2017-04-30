@@ -7,12 +7,14 @@
 
     <div class = "panel panel-default">
 	<div class = "panel-body">
-	    <ul class = "list-group">
+	    <% if @friends.blank? %>
+		<h4 class = "text-center"><i>You don't seem to have any friends</i></h4>
+	    <% else %>
 		<% @friends.each do |friend| %>
-		    <li class = "list-group-item"> <%= friend.friend.first_name%>, <%= friend.friend.last_name %> </li>
-
+		    <%= friend.friend.first_name%>, <%= friend.friend.last_name %> </li>
+		    <hr>
 		<% end %>
-	    </ul>
+	    <% end %>
 	</div>
     </div>
 </div>

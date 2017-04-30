@@ -11,6 +11,9 @@ class User < ApplicationRecord
   has_many :inverse_friendships, class_name: "Friendship", foreign_key: 'friend_id'
   has_many :inverse_friends, through: :inverse_friendships, source: :user
   
+  has_many :friend_requests
+  has_many :group_invites
+  
   groupify :group_member
   groupify :named_group_member
 
