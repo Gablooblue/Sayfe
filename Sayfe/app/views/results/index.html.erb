@@ -1,0 +1,22 @@
+<div class = "container" style ="padding-top: 60px;">
+    <div class = "panel panel-default">
+	<div class = "nav nav-tabs">
+	    <li class = "nav-item">
+		<a class = "nav-link" href= "results/users">Users</a>
+	    </li>
+	    <li class = "nav-item">
+		<a class = "nav-link" href= "groups">Groups</a>
+	    </li>
+	</div>
+	<div class = "panel-body">
+	    <% if @results.blank? %>
+		<h4 class = "text-center"><i>No results found</i></h4>
+	    <% else %>
+		<% @results.each do |result| %>
+		    <h4><%= link_to  result.name, result %> <h4>
+		    <hr>
+		<% end %>
+	    <% end %>
+	</div>
+    </div>
+</div

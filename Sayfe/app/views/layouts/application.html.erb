@@ -31,20 +31,27 @@
 		<div class= "collapse navbar-collapse"  id="navbar">
 			<ul class = "nav navbar-nav">
 			</ul>
+			<div class = "col-md-6">
+			    <form class = "navbar-form" role="search">
+				    <input type = "text" class = "form-control" placeholder = "Search for users, groups, etc." name="search">
+			    </form>
+			</div>
 			<ul class = "nav navbar-nav navbar-right">	
 				    <% if !user_signed_in? %>
 					<li><%= link_to "Login", new_user_session_path %></li>
 					<li><%= link_to "Sign Up", new_user_registration_path %></li>
 				    <% else %>
 					<li>
-					    <%= link_to 'Requests', friend_requests_path %>
+					    <%= link_to  friend_requests_path do %>
+						<i class= "fa fa-users"></i>
+					    <% end %>
 					</li>
-					<li><a href= "#">Notifications </a>
+					<li><a href= "#"><%= fa_icon "envelope" %></a>
 					    
 					</li>
 					<li class = "dropdown">
 					    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						<%= current_user.first_name %> <span class = "caret"></span>
+						<%= fa_icon "user" %>&nbsp<%= current_user.first_name %> <span class = "caret"></span>
 					    </a>
 						<ul class = "dropdown-menu">
 							<!--<li> <a href= "{{ url('/account') }}">Account</a></li>-->

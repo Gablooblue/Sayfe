@@ -24,16 +24,20 @@ class FriendRequestsController < ApplicationController
   # POST /friend_requests
   # POST /friend_requests.json
   def create
-    @friend_request = FriendRequest.new(friend_request_params)
+    if friendship.exists? 
+	@friend_request = FriendRequest.new(friend_request_params)
 
-    respond_to do |format|
-      if @friend_request.save
-        format.html { redirect_to @friend_request, notice: 'Friend request was successfully created.' }
-        format.json { render :show, status: :created, location: @friend_request }
-      else
-        format.html { render :new }
-        format.json { render json: @friend_request.errors, status: :unprocessable_entity }
-      end
+	respond_to do |format|
+	  if @friend_request.save
+	    format.html { redirect_to @friend_request, notice: 'Friend request sent.' }
+	    format.json { render :show, status: :created, location: @friend_request }
+	  else
+	    format.html { render :new }
+	    format.json { render json: @friend_request.errors, status: :unprocessable_entity }
+	  end
+	end
+    else
+	flash[:notice] = "That person is already your friend"
     end
   end
 
@@ -42,7 +46,7 @@ class FriendRequestsController < ApplicationController
   def update
     respond_to do |format|
       if @friend_request.update(friend_request_params)
-        format.html { redirect_to @friend_request, notice: 'Friend request was successfully updated.' }
+        format.html { redirect_to @friend_request, notice: 'Friend request updated.' }
         format.json { render :show, status: :ok, location: @friend_request }
       else
         format.html { render :edit }
@@ -56,7 +60,7 @@ class FriendRequestsController < ApplicationController
   def destroy
     @friend_request.destroy
     respond_to do |format|
-      format.html { redirect_to friend_requests_url, notice: 'Friend request was successfully destroyed.' }
+      format.html { redirect_to friend_requests_url, notice: 'Friend request deleted.' }
       format.json { head :no_content }
     end
   end
@@ -71,4 +75,6 @@ class FriendRequestsController < ApplicationController
     def friend_request_params
       params.require(:friend_request).permit(:user_id, :friend_id)
     end
+
+    
 end
