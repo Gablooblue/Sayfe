@@ -42,11 +42,14 @@
 					<li><%= link_to "Sign Up", new_user_registration_path %></li>
 				    <% else %>
 					<li>
-					    <%# link_to  friend_requests_path do %>
+					    <%= link_to  friend_requests_path do %>
 						<i class= "fa fa-users"></i>
-					    <%#end %>
+					    <%end %>
 					</li>
-					<li><a href= "#"><%= fa_icon "envelope" %></a>
+					<li>
+					    <%= link_to notifications_path do %>
+					    <%= fa_icon "envelope" %>
+					    <% end %>
 					    
 					</li>
 					<li class = "dropdown">
@@ -56,7 +59,7 @@
 						<ul class = "dropdown-menu">
 							<!--<li> <a href= "{{ url('/account') }}">Account</a></li>-->
 							<!--<li><a href="/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>-->
-							    <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+							    <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
 						</ul>
 					</li>
 				    <% end %>

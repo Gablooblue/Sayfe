@@ -12,6 +12,10 @@ Rails.application.routes.draw do
       resources :announcements
   end
 
+  resources :notifications, only: :index
+
+  resources :friend_requests, only: :index
+
 
   resources :results, only: :index
   resources :home, only: :index
