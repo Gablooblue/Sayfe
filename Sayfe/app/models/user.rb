@@ -12,9 +12,13 @@ class User < ApplicationRecord
   
   has_many :friendship_requests, class_name: "Friendship", foreign_key: "friend_id"
 
+  #Friends who added user
   has_many :active_friends, -> {where(friendships: {confirmed: true})}, through: :friendships, source: :friend
+  #Friends which user added
   has_many :received_friends, -> {where(friendships: {confirmed: true})}, through: :friendship_requests, source: :user
+  #Friend requests from others
   has_many :pending_friends, -> {where(friendships: {confirmed: false})}, through: :friendships, source: :friend
+  #Friend requests user sent
   has_many :requested_friends, -> {where(friendships: {confirmed: false})}, through: :friendship_requests, source: :user
 
   def friends
@@ -24,6 +28,7 @@ class User < ApplicationRecord
   def requests
       pending_friends | requested_friends
   end
+
   has_many :group_invites
   
   groupify :group_member
