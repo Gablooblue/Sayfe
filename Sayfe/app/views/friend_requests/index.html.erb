@@ -8,7 +8,7 @@
 		    <% @friend_reqs.each do |request| %>
 		    <li> 
 			<%= request.first_name %>
-			<%= link_to "Accept", friendship_path(id: request.id), method: "put" %>
+			<%= link_to "Accept", friendship_path(id: request.id), method: :put %>
 			<%= link_to "Delete friend request", friendship_path(id: request.id), method: :delete %>
 		    </li>
 		    <% end %>

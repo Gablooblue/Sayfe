@@ -2,39 +2,46 @@ class FriendshipsController < ApplicationController
     before_action :authenticate_user! 
 
     def index 
-	@friends = current_user.friendships.all 
+	@friends = current_user.friends
     end
 
     def create
-	@friendship = current_user.friendships.build(:friend_id => params[:friend_id])
-	if @friendship.save
-	    flash[:notice] = "Friend request sent"
-	    redirect_to :back
-	else
-	    flash[:error] = "Error in sending friend request"
-	    redirect_to :back
+	@friendship = current_user.friendships.build(friend_id: params[:friend_id])
+	respond_to do |format|
+	    if @friendship.save
+		format.html {redirect_to :back, notice: "Friend request sent"}
+		format.json { render "Friend request sent", status: :created, location: :back }
+	    else
+		format.html {redirect_to :back, notice: "Error in sending friend request"}
+		format.json {render json: "Error in sending friend request", status: :unprocessable_entity}
+	    end
 	end
     end
 
     def update 
-	@friendship = current_user.friendships.find(params[:id])
-        @friendship.update(status: "confirmed") 
+	@friendship = Friendship.find_by(user_id: params[:id])
+        @friendship.update(confirmed: true) 
 
-	if @friendship.save
-	    flash[:notice] = "Added friend"
-	    redirect_to :back
-	else
-	    flash[:error] = "Error in adding friend"
-	    redirect_to :back
+	respond_to do |format|
+	    if @friendship.save
+		format.html { redirect_to :back, notice: "Added friend" }
+		format.json { render :back, status: :created, location: :back }
+	    else
+		format.html {redirect_to :back, error: "Unable to add friend, please try again later"}
+		format.json {render json: "Unable to add friend", status: :unprocessable_entity}
+		
+	    end
 	end
     end
     
     def destroy
-	@friendship = current_user.friendships.find(params[:id])
+	@friendship = Friendship.find_by(user_id: params[:id])
 	@friendship.destroy
 	
-	flash[:notice] = "Unfriended"
-	redirect_to :back
+	respond_to do |format|
+	    format.html {redirect_to :back, notice: "Deleted"}	
+	    format.json { head :no_content}
+	end
     end
 
 end

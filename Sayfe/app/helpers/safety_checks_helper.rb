@@ -1,0 +1,2 @@
+module SafetyChecksHelper
+end
