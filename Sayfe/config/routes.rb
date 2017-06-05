@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :group_checks
   resources :safety_checks, only: [:show, :new, :create, :update, :destroy]
 
   resources :group_invites

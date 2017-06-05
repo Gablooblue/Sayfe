@@ -1,5 +1,12 @@
 class SafetyCheck < ApplicationRecord
+    belongs_to :receiver, class_name: "User"
     belongs_to :user
-    belongs_to :friend, class_name: "User", optional: true
-    belongs_to :group, optional: true
+
+    scope :target,-> (user) do
+	where("safety_checks.receiver_id = ? AND res = ?", user.id, "")
+    end
+
+    scope :result, -> (user) do
+	where("safety_checks.user_id= ? and res != ?", user.id, "")
+    end
 end

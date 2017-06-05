@@ -11,16 +11,19 @@
 			<%# query.name %> 
 		    <%#else %>
 		    <li>
-			<%= link_to  query.first_name, @query %> 		    
+			<%= link_to  query.user.first_name, @query %>
+			<%= query %>
 		    <%#end %>
 			wants to know if you're safe 
-			<%= link_to "I'm safe", safety_check_path(id: current_user.id, res: "safe"), method: :put %>
-			<%= link_to "I need help", safety_check_path(id: current_user.id, res: "danger"), method: :put%>
+			<%= link_to "I'm safe", safety_check_path(id: query.id, res: "safe"), method: :put %>
+			<%= link_to "I need help", safety_check_path(id: query.id, res: "danger"), method: :put%>
 		    </li>
 		<% end %>
+		<% if false %>
 		<% @group_queries.each do |query| %>
 		    <li> The group <%= query.name %> wants to know if you're safe</li>
 		<% end %>
+	    <% end %>
 		</ul>
 	    <% end %>
 	</div>

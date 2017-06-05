@@ -20,7 +20,7 @@ class FriendshipsController < ApplicationController
 
     def update 
 	@friendship = Friendship.find_by(user_id: params[:id])
-        @friendship.update(confirmed: true) 
+	@friendship.update(confirmed: true) 
 
 	respond_to do |format|
 	    if @friendship.save
@@ -29,15 +29,15 @@ class FriendshipsController < ApplicationController
 	    else
 		format.html {redirect_to :back, error: "Unable to add friend, please try again later"}
 		format.json {render json: "Unable to add friend", status: :unprocessable_entity}
-		
+
 	    end
 	end
     end
-    
+
     def destroy
 	@friendship = Friendship.find_by(user_id: params[:id])
 	@friendship.destroy
-	
+
 	respond_to do |format|
 	    format.html {redirect_to :back, notice: "Deleted"}	
 	    format.json { head :no_content}

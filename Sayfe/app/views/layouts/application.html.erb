@@ -33,7 +33,7 @@
 			</ul>
 			<div class = "col-md-6">
 			    <form class = "navbar-form" role="search">
-				    <input type = "text" class = "form-control" placeholder = "Search for users, groups, etc." name="search">
+				    <input type = "text" class = "form-control" placeholder = "Search for users, groups, etc." name="results">
 			    </form>
 			</div>
 			<ul class = "nav navbar-nav navbar-right">	
@@ -67,6 +67,7 @@
 			</ul>
 		</div>	
 	</nav>
+	<% if false %>	
 	<% if user_signed_in? %>
 	<%# Left sidebar for friends %>	
 	<div class = "left-sidebar">
@@ -78,6 +79,7 @@
 		</ul>
 	    </div>
 	</div>
+	<% end %>
 	<% end %>
 	<%= notice %>
 	<%= alert %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170603134705) do
+ActiveRecord::Schema.define(version: 20170605065343) do
 
   create_table "announcements", force: :cascade do |t|
     t.integer  "user_id"
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(version: 20170603134705) do
     t.boolean  "confirmed",  default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+  end
+
+  create_table "group_checks", force: :cascade do |t|
+    t.integer  "group_id"
+    t.integer  "receiver_id"
+    t.string   "res",         default: ""
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "group_invites", force: :cascade do |t|
@@ -76,12 +84,11 @@ ActiveRecord::Schema.define(version: 20170603134705) do
   end
 
   create_table "safety_checks", force: :cascade do |t|
+    t.integer  "receiver_id"
     t.integer  "user_id"
-    t.integer  "friend_id"
-    t.integer  "group_id"
-    t.string   "res",        default: ""
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "res",         default: ""
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "users", force: :cascade do |t|
