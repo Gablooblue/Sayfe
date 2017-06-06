@@ -1,29 +1,30 @@
 Rails.application.routes.draw do
 
-  resources :group_checks
-  resources :safety_checks, only: [:show, :new, :create, :update, :destroy]
+    resources :group_checks, only: [:create, :update, :destroy]
+    resources :safety_checks, only: [:create, :update, :destroy]
 
-  resources :group_invites
-  resources :announcements
-  resources :friendships
-  devise_for :users, controllers:{
-      registrations: 'users/registrations',
-      sessions: 'users/sessions'
-  }
-  resources :posts
-  resources :disasters
-  resources :groups do
-      resources :announcements
-  end
+    resources :group_invites
+    resources :announcements
+    resources :friendships, only: [:index, :create, :update, :destroy]
+    devise_for :users, controllers:{
+	registrations: 'users/registrations',
+	sessions: 'users/sessions'
+    }
+    resources :posts
+    resources :disasters
+    resources :groups do
+	resources :announcements
+    end
 
-  resources :notifications, only: :index
+    resources :account, only: :show
 
-  resources :friend_requests, only: :index
+    with_options only: :index do |list_only|
+	list_only.resources :notifications
+	list_only.resources :friend_requests
+	list_only.resources :results
+	list_only.resources :home
+    end
 
-
-  resources :results, only: :index
-  resources :home, only: :index
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'splash#index'
+    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+    root 'splash#index'
 end

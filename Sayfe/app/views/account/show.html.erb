@@ -1,0 +1,50 @@
+<div class = "container" style = "padding-top:60px">
+    <div class = "col-md-12">
+	<div class = "panel panel-default">
+	    <div class = "panel-body">
+		<h3><%= @user.first_name %> <%= @user.last_name %> </h3>
+	    </div>
+	</div>
+    </div>
+    <div class = "col-md-6">
+	<div class = "panel panel-default">
+	    <h3 class = "text-center">Groups (<%= @user.groups.count %>)</h3>
+	    <div class = "panel-body">
+		<% if @user.groups.blank? %>
+		    <h4 class = "text-center"><i>
+			User hasn't joined any groups 
+		</i> </h4>
+		<% else %>
+		    <div class = "list-group">
+			<% @user.groups.each do |group| %>
+			    <a href= "#"class = "list-group-item list-group-item-action">
+				<%= group.name %>
+			    </a>
+			<% end %>
+		    </div>
+		<% end %>
+	    </div>
+	</div>
+    </div>
+    <div class = "col-md-6">
+	<div class = "panel panel-default">
+	    <h3 class ="text-center">Friends (<%= @user.friends.count %>)</h3>
+	    <div class = "panel-body">
+		<% if @user.friends.blank? %>
+		    <h4 class = "text-center"><i>
+			User hasn't added any friends
+		    </i></h4>
+		<% else %>
+		    <div class = "list-group">
+			<% @user.friends.each do |friend| %>
+			    <a href = "#" class = "list-group-item list-group-item-action">
+				<%= friend.first_name %>
+				<%= friend.last_name %>
+			    </a >
+			<% end %>
+		    </div>
+		<% end %>	
+	    </div>
+	</div>
+    </div>
+</div>

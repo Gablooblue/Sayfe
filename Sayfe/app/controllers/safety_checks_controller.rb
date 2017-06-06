@@ -2,20 +2,6 @@ class SafetyChecksController < ApplicationController
     before_action :set_safety_check, only: [:show, :edit, :update, :destroy]
 
 
-    # GET /safety_checks/1
-    # GET /safety_checks/1.json
-    def show
-    end
-
-    # GET /safety_checks/new
-    def new
-	@safety_check = SafetyCheck.new
-    end
-
-    # GET /safety_checks/1/edit
-    def edit
-    end
-
     # POST /safety_checks
     # POST /safety_checks.json
     def create

@@ -5,12 +5,12 @@
 	    <% if @user_queries.blank? and @group_queries.blank? %>
 		<h4 class = "text-center"><i>No notifications</i></h4>
 	    <% else %>
-		<ul>
+		<ul class = "list-group">
 		<% @user_queries.each do |query| %>
 		    <%# if !query.first_name.nil?%>
 			<%# query.name %> 
 		    <%#else %>
-		    <li>
+		    <li class = "list-group-item">
 			<%= link_to  query.user.first_name, @query %>
 			<%= query %>
 		    <%#end %>
@@ -21,7 +21,7 @@
 		<% end %>
 		<% if false %>
 		<% @group_queries.each do |query| %>
-		    <li> The group <%= query.name %> wants to know if you're safe</li>
+		    <li class = "list-group-item"> The group <%= query.name %> wants to know if you're safe</li>
 		<% end %>
 	    <% end %>
 		</ul>
