@@ -9,7 +9,7 @@
 //Navbar border
 #myToolbar
 {
-  border-bottom-color: $color-red-dull;
+  border-bottom-color: $color-blue-main;
   border-width:1px;
   font-family: "Droid Sans", sans-serif;
 }
@@ -17,25 +17,25 @@
 //Panels
 #panel-border-top
 {
-  border-top-color:$color-red-dull;
+  border-top-color:$color-blue-main;
   border-width:1px;
 }
 #panel-border-bottom
 {
-  border-bottom-color:$color-red-dull;
+  border-bottom-color:$color-blue-main;
   border-width:1px;
 }
 
 #panel-default-border
 {
-  border-bottom-color:$color-red-dull;
-  border-top-color:$color-red-dull;
+  border-bottom-color:$color-blue-main;
+  border-top-color:$color-blue-main;
   border-width:1px;
 }
 #panel-heading
 { 
   background-color:#FFFFFF;  
-  border-bottom-color:$color-red-dull;
+  border-bottom-color:$color-blue-main;
   color:$color-red-bright;
 }
 

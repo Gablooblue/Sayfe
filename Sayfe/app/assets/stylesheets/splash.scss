@@ -1,6 +1,4 @@
-$color-yellow: #EDB83D;
-$color-red: #D70026;
-$color-pearl: #F8F5F2;
+@import "bootstrap/variables";
 
 header
 {
@@ -8,11 +6,11 @@ header
   width: 100%;
   min-height: auto;
   overflow-y: hidden;
-  background: url(asset-path("bg-pattern.png")), $color-red;
+  background: url(asset-path("bg-pattern.png")), $color-blue-main;
   /* fallback for old browsers */
-  background: url(asset-path("bg-pattern.png")), -webkit-linear-gradient(to right, $color-red, $color-pearl);
+  background: url(asset-path("bg-pattern.png")), -webkit-linear-gradient(to right, $color-blue-main, $color-yellow-main);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: url(asset-path("bg-pattern.png")), linear-gradient(to right, $color-red, $color-pearl);
+  background: url(asset-path("bg-pattern.png")), linear-gradient(to right, $color-blue-main, $color-yellow-main);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: white;
 }
@@ -81,7 +79,7 @@ header .device-container .screen img {
 {
     padding-top: 5%;
     padding-bottom:5%;
-    color:$color-pearl;
+    color:$color-yellow-main;
     font-family: 'Open Sans', sans-serif;
     @media only screen and (min-width: 200px)
     {
@@ -103,5 +101,5 @@ header .device-container .screen img {
 
 .yellow-bg
 {
-    background-color: $color-yellow;
+    background-color: $color-yellow-main;
 }
