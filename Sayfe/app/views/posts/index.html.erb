@@ -1,50 +1,48 @@
-<div class ="container" style='padding-top:60px;'>
-    <p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
-    <h1 class = "text-center">Posts</h1>
+<h1 class = "text-center">Posts</h1>
 
-    <table>
-      <thead>
-	<tr>
-	  <th>Disaster</th>
-	  <th>User</th>
-	  <th>Intensity</th>
-	  <th>Desc</th>
-	  <th>Longtitude</th>
-	  <th>Latitude</th>
-	  <th colspan="3"></th>
-	</tr>
-      </thead>
+<table>
+  <thead>
+    <tr>
+      <th>Disaster</th>
+      <th>User</th>
+      <th>Intensity</th>
+      <th>Desc</th>
+      <th>Longtitude</th>
+      <th>Latitude</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-      <tbody>
-	<% @posts.each do |post| %>
-	  <tr>
-	    <td><%= post.disaster_id %></td>
-	    <td><%= post.user_id %></td>
-	    <td><%= post.intensity %></td>
-	    <td><%= post.desc %></td>
-	    <td><%= post.longtitude %></td>
-	    <td><%= post.latitude %></td>
-	    <td><%= link_to 'Show', post %></td>
-	    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-	    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-	  </tr>
-	<% end %>
-      </tbody>
-    </table>
+  <tbody>
     <% @posts.each do |post| %>
-	<div class = "container">
-	    <div class = "panel panel-default">
-		<div class = "panel-body">
-		    <ul class = "list-group">
-			<li class="list-group-item">Disaster: <%= post.disaster.title%></li>
-			<li class="list-group-item">Author: <%= post.user.email %></li>
-			<li class="list-group-item">Intensity: <%= post.intensity %></li>
-			<li class="list-group-item">Description: <%= post.desc %></li>
-		    </ul>
-		</div>
+      <tr>
+	<td><%= post.disaster_id %></td>
+	<td><%= post.user_id %></td>
+	<td><%= post.intensity %></td>
+	<td><%= post.desc %></td>
+	<td><%= post.longtitude %></td>
+	<td><%= post.latitude %></td>
+	<td><%= link_to 'Show', post %></td>
+	<td><%= link_to 'Edit', edit_post_path(post) %></td>
+	<td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% @posts.each do |post| %>
+    <div class = "container">
+	<div class = "panel panel-default">
+	    <div class = "panel-body">
+		<ul class = "list-group">
+		    <li class="list-group-item">Disaster: <%= post.disaster.title%></li>
+		    <li class="list-group-item">Author: <%= post.user.email %></li>
+		    <li class="list-group-item">Intensity: <%= post.intensity %></li>
+		    <li class="list-group-item">Description: <%= post.desc %></li>
+		</ul>
 	    </div>
 	</div>
-    <% end %>
-    <%= link_to 'New Post', new_post_path %>
-</div>
+    </div>
+<% end %>
+<%= link_to 'New Post', new_post_path %>

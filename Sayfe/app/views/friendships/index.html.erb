@@ -1,21 +1,18 @@
-<div class = "container" style = "padding-top: 60px">
-    <div class = "panel panel-default">
-	<div class = "panel-body">
-	    <h2 class = "text-center">Friends</h2>
-	</div>
-    </div>
-
-    <div class = "panel panel-default">
-	<div class = "panel-body">
-	    <% if @friends.blank? %>
-		<h4 class = "text-center"><i>You don't seem to have any friends</i></h4>
-	    <% else %>
-		<% @friends.each do |friend| %>
-		    <%= friend.friend.first_name%>, <%= friend.friend.last_name %> </li>
-		    <hr>
-		<% end %>
-	    <% end %>
-	</div>
+<div class = "panel panel-default">
+    <div class = "panel-body">
+	<h2 class = "text-center">Friends</h2>
     </div>
 </div>
+
+<div class = "panel panel-default">
+    <div class = "panel-body">
+	<% if @friends.blank? %>
+	    <h4 class = "text-center"><i>You don't seem to have any friends</i></h4>
+	<% else %>
+	    <% @friends.each do |friend| %>
+		<%= friend.friend.first_name%>, <%= friend.friend.last_name %> </li>
+		<hr>
+	    <% end %>
+	<% end %>
+    </div>
 </div>
