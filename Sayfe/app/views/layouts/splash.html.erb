@@ -67,34 +67,6 @@
 			</ul>
 		</div>	
 	</nav>
-	<% if false #user_signed_in? %>
-	<%# Left sidebar for friends %>	
-	<div class = "col-md-2" style= "padding-top:60px;">
-	<div class = "container" >
-	    <h4>Groups</h4>
-	    <ul class = "list-group">
-		<% if current_user.groups.blank? %>
-		    <p>Create a group by clicking <%= link_to "here", new_group_path %></p>
-		<% end %>
-		<% current_user.groups.each do |group| %>
-		    <li class = "list-group-item"><%= link_to group.name, group_path(id: group.id)%></li>
-		<% end %>
-	    </ul>
-	</div>
-    </div>
-	<% end %>
-	<div class = "container" style = "padding-top:60px;">
-	    <% if !notice.blank? %>
-		<div class = "alert alert-success">
-		    <%= notice %>
-		</div>
-	    <% end %>
-	    <% if !alert.blank? %>
-		<div class = "alert alert-danger">
-		    <%= alert %>
-		</div>
-	    <% end %>
 	<%= yield %>
-	</div>
-  </body>
+    </body>
 </html>
