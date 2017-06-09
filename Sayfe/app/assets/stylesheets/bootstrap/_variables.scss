@@ -14,9 +14,16 @@ $navbar-default-link-hover-color: $color-blue-main;
 $navbar-default-brand-color: $color-blue-main;
 $navbar-border-color: $color-blue-main;
 
+//Brands
+$brand-primary: $color-blue-main;
+
 //fonts
 $font-family-sans-serif: 'Open Sans', sans-serif;
 $text-color:#000B29;
 
 //body
 $body-bg:lighten($color-gray-dark, 15%);
+
+//Buttons
+$btn-primary-color: #FFDF00;
+$input-color: $color-blue-light;
