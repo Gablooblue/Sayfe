@@ -59,6 +59,10 @@
 						<ul class = "dropdown-menu">
 							<!--<li> <a href= "{{ url('/account') }}">Account</a></li>-->
 							<!--<li><a href="/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>-->
+							    <li><%= link_to "Friends", friendships_path %></li>
+							    <li><%= link_to "Groups", groups_path %></li>
+							    <li class = "divider"></li>
+							    <li><%= link_to "Account", account_path(id: current_user.id) %>
 							    <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
 						</ul>
 					</li>

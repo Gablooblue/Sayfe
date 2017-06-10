@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_group, only: [:show, :edit, :update, :destroy]
+    before_action :set_group, only: [:show, :edit, :update, :destroy, :check_group]
 
     def index
 	@groups = Group.with_member(current_user)
@@ -25,6 +25,19 @@ class GroupsController < ApplicationController
 		format.html {render :new}
 		format.json { render json: @group.errors, status: :unprocessable_entity }
 	    end
+	end
+    end
+
+    def check_group
+	@members = User.in_group(set_group)
+
+	@members.each do |member|
+	    GroupCheck.create(id: member.id)
+	end
+
+	respond_to do |format|
+	    format.html {redirect_to @group, notice: "Group checked"}
+	    format.json {render :back, status: :created}
 	end
     end
 

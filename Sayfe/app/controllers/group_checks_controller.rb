@@ -42,6 +42,14 @@ class GroupChecksController < ApplicationController
     end
   end
 
+  def check_group
+    @members = User.in_group(id: params[:id])
+
+    @members.each do |member|
+	GroupCheck.create(id: member.id)
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group_check
@@ -52,4 +60,5 @@ class GroupChecksController < ApplicationController
     def group_check_params
       params.require(:group_check).permit(:group_id, :receiver_id, :res)
     end
+
 end

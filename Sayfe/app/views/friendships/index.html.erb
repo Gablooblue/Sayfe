@@ -1,4 +1,4 @@
-<div class = "panel panel-default">
+<div class = "panel panel-default" id= "panel-border-bottom">
     <div class = "panel-body">
 	<h2 class = "text-center">Friends</h2>
     </div>
@@ -10,8 +10,13 @@
 	    <h4 class = "text-center"><i>You don't seem to have any friends</i></h4>
 	<% else %>
 	    <% @friends.each do |friend| %>
-		<%= friend.friend.first_name%>, <%= friend.friend.last_name %> </li>
-		<hr>
+		<div class = "col-md-6">
+		    <div class = "panel panel-default">
+			<div class = "panel-body">
+			    <h4><%= link_to friend.first_name + " " + friend.last_name, account_path(friend.id) %></h4>
+			</div>
+		    </div>
+		</div>
 	    <% end %>
 	<% end %>
     </div>

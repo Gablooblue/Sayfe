@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     resources :disasters
     resources :groups do
 	resources :announcements
+	collection do
+	    get :check_group
+	end
     end
 
     resources :account, only: :show

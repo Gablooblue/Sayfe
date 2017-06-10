@@ -15,13 +15,14 @@
 	    <h4 class = "text-center">Members</h4>
 	</div>
 	<div class = "panel-body">
+	    <%= link_to "Check if group is safe", check_group_groups_path(id: @group.id) %>
+	    <ul style="list-style:none;">
 	    <% @members.each do |member| %>
-		<ul style="list-style:none;">
 		    <li>
 			<%= member.last_name%>, <%= member.first_name %>
 		    </li>
-		</ul>
 	    <% end %>
+	    </ul>
 	</div>
     </div>
 </div>
