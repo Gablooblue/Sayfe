@@ -7,6 +7,6 @@ class GroupCheck < ApplicationRecord
     end
 
     scope :result, -> (group) do
-	where("safety_checks.group_id = ? and res != ?", group.id, "")	
+	where("group_checks.group_id = ? and res != ?", group.id, "")	
     end
 end

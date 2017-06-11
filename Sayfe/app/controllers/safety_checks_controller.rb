@@ -23,7 +23,7 @@ class SafetyChecksController < ApplicationController
     def update
 	respond_to do |format|
 	    if @safety_check.update(safety_check_params)
-		format.html { redirect_to :back, notice: 'Safety check was successfully updated.' }
+		format.html { redirect_to :back, notice: 'Response sent.' }
 		format.json { render :back, status: :ok, location: @safety_check }
 	    else
 		format.html { render :back, notice: "Error in responding to safety check"}

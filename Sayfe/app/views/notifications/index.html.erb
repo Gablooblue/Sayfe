@@ -1,7 +1,7 @@
 <div class = "panel panel-default">
     <h4 class = "text-center">Notifications</h4>
     <div class = "panel-body">
-    <% if false %>
+    <% if false%>
 	<% if @user_queries.blank? and @group_queries.blank? %>
 	    <h4 class = "text-center"><i>No notifications</i></h4>
 	<% else %>
@@ -19,10 +19,8 @@
 		    <%= link_to "I need help", safety_check_path(id: query.id, res: "danger"), method: :put%>
 		</li>
 	    <% end %>
-	    <% if false %>
 	    <% @group_queries.each do |query| %>
-		<li class = "list-group-item"> The group <%= query.name %> wants to know if you're safe</li>
-	    <% end %>
+		<li class = "list-group-item"> The group, <%= query.group.name %> wants to know if you're safe</li>
 	<% end %>
 	    </ul>
 	<% end %>
@@ -34,14 +32,17 @@
 	    <ul class = "list-group">
 		<% @safety_queries.each do |query| %>
 		<li class = "list-group-item">
-		    <% if !query.has_attribute?(:user) %>
-			<%= query.user.first_name %> 
+		    <% if query.has_attribute?(:user) %>
+			<%= link_to query.user.first_name, account_path(id: query.user.id) %> 
+			wants to know if you're safe
+			<%= link_to "I'm safe", safety_check_path(id: query.id, res: "safe"), method: :put %>
+			<%= link_to "I need help", safety_check_path(id: query.id, res: "danger"), method: :put%>
 		    <% else %>
-			<%= query.name %>
+			The group <%= link_to query.group.name, group_path(id: query.group.id) %>
+			wants to know if you're safe
+			<%= link_to "I'm safe", group_check_path(id: query.id, res: "safe"), method: :put %>
+			<%= link_to "I need help", group_check_path(id: query.id, res: "danger"), method: :put%>
 		    <% end %>
-		    wants to know if you're safe
-		    <%= link_to "I'm safe", safety_check_path(id: query.id, res: "safe"), method: :put %>
-		    <%= link_to "I need help", safety_check_path(id: query.id, res: "danger"), method: :put%>
 		</li>
 	    <% end %>
 	    </ul>

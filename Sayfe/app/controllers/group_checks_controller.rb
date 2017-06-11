@@ -23,10 +23,10 @@ class GroupChecksController < ApplicationController
   def update
     respond_to do |format|
       if @group_check.update(group_check_params)
-        format.html { redirect_to @group_check, notice: 'Group check was successfully updated.' }
-        format.json { render :show, status: :ok, location: @group_check }
+        format.html { redirect_to :back, notice: 'Response sent.' }
+        format.json { render :back, status: :ok, location: @group_check }
       else
-        format.html { render :edit }
+        format.html { render :back}
         format.json { render json: @group_check.errors, status: :unprocessable_entity }
       end
     end
@@ -42,13 +42,6 @@ class GroupChecksController < ApplicationController
     end
   end
 
-  def check_group
-    @members = User.in_group(id: params[:id])
-
-    @members.each do |member|
-	GroupCheck.create(id: member.id)
-    end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -58,7 +51,7 @@ class GroupChecksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_check_params
-      params.require(:group_check).permit(:group_id, :receiver_id, :res)
+      params.permit(:id, :receiver_id,:group_id, :res)
     end
 
 end

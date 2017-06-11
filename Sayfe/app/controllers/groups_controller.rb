@@ -32,8 +32,9 @@ class GroupsController < ApplicationController
 	@members = User.in_group(set_group)
 
 	@members.each do |member|
-	    GroupCheck.create(id: member.id)
+		GroupCheck.create(group_id: params[:id], receiver_id: member.id)
 	end
+
 
 	respond_to do |format|
 	    format.html {redirect_to @group, notice: "Group checked"}

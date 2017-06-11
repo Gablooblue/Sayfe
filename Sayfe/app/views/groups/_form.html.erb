@@ -1,7 +1,7 @@
-<%= form_for(group) do |f| %>
+<%= form_for(group, html: {class: "form-horizontal center"}) do |f| %>
     <% if group.errors.any?  %> 
 	<div id = "error_explanation">
-	    <h2><%= pluralize(group.errors.count, "error") %> Error in creating group, please try again in a few minutes </h2>
+	    <p><%= pluralize(group.errors.count, "error") %> Error in creating group, please try again in a few minutes </p>
 
 	    <ul>
 		<% group.errors.full_messages.each do |message|%>
@@ -11,18 +11,24 @@
 	</div>
     <% end %>
 
-    <div class = "field">
-	<%= f.label :name %>
-	<%= f.text_field :name %>
+    <div class = "form-group">
+	<%= f.label :name, class: "col-md-4 control-label"%>
+	<div class = "col-md-5">
+	    <%= f.text_field :name, class: "form-control"%>
+	</div>
     </div>
 
-    <div class = "field">
-	<%= f.label :desc %>
-	<%= f.text_area :desc%>
+    <div class = "form-group">
+	<%= f.label :desc, class: "col-md-4 control-label" %>
+	<div class = "col-md-5">
+	    <%= f.text_area :desc, class: "form-control", placeholder: "(Optional)"%>
+	</div>
     </div>
 
-    <div class = "actions">
-	<%= f.submit %>
+    <div class = "form-group">
+	<div class = "col-md-offset-4 col-md-4">
+	    <%= f.submit "Create group", class: "btn btn-primary"%>
+	</div>
     </div>
     
 <% end %>
