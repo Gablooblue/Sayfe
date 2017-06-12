@@ -1,17 +1,18 @@
 <div class = "panel default-panel">
+    <h4 class = "text-center">Friend requests</h4>
     <div class = "panel-body">
-	<ul>
-	    <% if @friend_reqs.blank? %>
-		<h4>No friend requests</h4>
-	    <% else %>
+	<% if @friend_reqs.blank? %>
+	    <h4 class = "text-center">You have no pending friend requests</h4>
+	<% else %>
+	    <ul>
 		<% @friend_reqs.each do |request| %>
 		<li> 
 		    <%= request.first_name %>
 		    <%= link_to "Accept", friendship_path(id: request.id), method: :put %>
 		    <%= link_to "Delete friend request", friendship_path(id: request.id), method: :delete %>
 		</li>
-		<% end %>
+	    </ul>
 	    <% end %>
-	</ul>
+	<% end %>
     </div>
 </div>

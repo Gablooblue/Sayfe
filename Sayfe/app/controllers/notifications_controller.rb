@@ -7,5 +7,6 @@ class NotificationsController < ApplicationController
 	@group_queries = GroupCheck.target(current_user)
 	@safety_queries = @user_queries + @group_queries
 	@safety_queries.sort_by(&:updated_at)
+	@user_results = SafetyCheck.result(current_user)
     end
 end

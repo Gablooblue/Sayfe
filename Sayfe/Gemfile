@@ -59,7 +59,7 @@ gem 'omniauth'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'devise_token_auth'
 
-#Social media 
+#For group making
 gem 'groupify'
 
 #Maps and locations

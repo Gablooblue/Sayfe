@@ -8,7 +8,7 @@
 <div class= "panel panel-default">
     <div class = "panel-body">
 	<% if @groups.blank? %>
-	    <h4 class = "text-center"><i>You're currently not part of any groups</i></h4>
+	    <h4 class = "text-center">You're currently not part of any groups</h4>
 	<% else %>
 		<% @groups.each do |group| %>  
 		    <h4><%= link_to group.name, group %> </h4>

@@ -1,51 +1,70 @@
-<div class = "panel panel-default">
-    <h4 class = "text-center">Notifications</h4>
-    <div class = "panel-body">
-    <% if false%>
-	<% if @user_queries.blank? and @group_queries.blank? %>
-	    <h4 class = "text-center"><i>No notifications</i></h4>
-	<% else %>
-	    <ul class = "list-group">
-	    <% @user_queries.each do |query| %>
-		<%# if !query.first_name.nil?%>
-		    <%# query.name %> 
-		<%#else %>
-		<li class = "list-group-item">
-		    <%= link_to  query.user.first_name, @query %>
-		    <%= query %>
-		<%#end %>
-		    wants to know if you're safe 
-		    <%= link_to "I'm safe", safety_check_path(id: query.id, res: "safe"), method: :put %>
-		    <%= link_to "I need help", safety_check_path(id: query.id, res: "danger"), method: :put%>
-		</li>
-	    <% end %>
-	    <% @group_queries.each do |query| %>
-		<li class = "list-group-item"> The group, <%= query.group.name %> wants to know if you're safe</li>
-	<% end %>
-	    </ul>
-	<% end %>
-    <%end %>
-
-	<% if @safety_queries.blank? %>
-	    <h4 class = "text-center">You have no pending notifications</h4>
-	<% else %>
-	    <ul class = "list-group">
-		<% @safety_queries.each do |query| %>
-		<li class = "list-group-item">
-		    <% if query.has_attribute?(:user) %>
-			<%= link_to query.user.first_name, account_path(id: query.user.id) %> 
-			wants to know if you're safe
+<div class = "col-md-6">
+    <div class = "panel panel-default">
+	<h4 class = "text-center">Notifications</h4>
+	<div class = "panel-body">
+	<% if false%>
+	    <% if @user_queries.blank? and @group_queries.blank? %>
+		<h4 class = "text-center"><i>No notifications</i></h4>
+	    <% else %>
+		<ul class = "list-group">
+		<% @user_queries.each do |query| %>
+		    <%# if !query.first_name.nil?%>
+			<%# query.name %> 
+		    <%#else %>
+		    <li class = "list-group-item">
+			<%= link_to  query.user.first_name, @query %>
+			<%= query %>
+		    <%#end %>
+			wants to know if you're safe 
 			<%= link_to "I'm safe", safety_check_path(id: query.id, res: "safe"), method: :put %>
 			<%= link_to "I need help", safety_check_path(id: query.id, res: "danger"), method: :put%>
-		    <% else %>
-			The group <%= link_to query.group.name, group_path(id: query.group.id) %>
-			wants to know if you're safe
-			<%= link_to "I'm safe", group_check_path(id: query.id, res: "safe"), method: :put %>
-			<%= link_to "I need help", group_check_path(id: query.id, res: "danger"), method: :put%>
-		    <% end %>
-		</li>
+		    </li>
+		<% end %>
+		<% @group_queries.each do |query| %>
+		    <li class = "list-group-item"> The group, <%= query.group.name %> wants to know if you're safe</li>
 	    <% end %>
-	    </ul>
-	<% end %>
+		</ul>
+	    <% end %>
+	<%end %>
+
+	    <% if @safety_queries.blank? %>
+		<h4 class = "text-center">You have no pending notifications</h4>
+	    <% else %>
+		<ul class = "list-group">
+		    <% @safety_queries.each do |query| %>
+		    <li class = "list-group-item">
+			<% if query.respond_to?(:user) %>
+			    <%= link_to query.user.first_name, account_path(id: query.user.id) %> 
+			    wants to know if you're safe
+			    <%= link_to "I'm safe", safety_check_path(id: query.id, res: "safe"), method: :put %>
+			    <%= link_to "I need help", safety_check_path(id: query.id, res: "danger"), method: :put%>
+			<% else %>
+			    The group <%= link_to query.group.name, group_path(id: query.group.id) %>
+			    wants to know if you're safe
+			    <%= link_to "I'm safe", group_check_path(id: query.id, res: "safe"), method: :put %>
+			    <%= link_to "I need help", group_check_path(id: query.id, res: "danger"), method: :put%>
+			<% end %>
+		    </li>
+		<% end %>
+		</ul>
+	    <% end %>
+	</div>
+    </div>
+</div>
+
+<div class = "col-md-6">
+    <div class = "panel panel-default">
+	<h4 class = "text-center">Responses</h4>
+	<div class = "panel-body">
+	    <% if @user_results.blank? %>
+		<h4 class = "text-center">No responses yet</h4>
+	    <% else %>
+		<% @user_results.each do |result| %>
+		    <ul class = "list-group">
+			<li class = "list-group-item"><%= link_to result.user.first_name, account_path(id: result.user.id) %> responded with <%= result.res %></li>
+		    </ul>
+		<% end %>
+	    <% end %>
+	</div>
     </div>
 </div>
