@@ -6,7 +6,6 @@ class HomeController < ApplicationController
 	    marker.lat post.latitude
 	    marker.lng post.longtitude
 	end
-	@users = User.all
     end
 
 end

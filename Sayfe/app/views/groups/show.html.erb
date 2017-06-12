@@ -1,5 +1,4 @@
 <% stylesheet_link_tag "groups"%>
-
 <div class = "col-md-12">
     <div class = "panel panel-default" id="panel-border-bottom">
 	<div class = "panel-body">
@@ -31,6 +30,7 @@
     <div class = "panel panel-default " id= "panel-border-top">
 	<div class = "panel-heading" id="panel-heading">
 	    <h4 class = "text-center">Announcements</h4>
+	    <p class = "text-center"><%= link_to "Make an announcement", new_announcement_path(id: @group.id, user: current_user.id) %>
 	</div>
 	<div class ="panel-body">
 	    <% if @group.announcements.blank? %>
@@ -38,8 +38,9 @@
 	    <% else %>
 		<% @group.announcements.each do |announcement| %>
 		    <h4> <%= announcement.title %> </h4>
-		    <p> <%= announcement.user.email %> </p>
-		    <p> <%= announcement.desc %> </p>
+		    <p> <i><%= announcement.created_at.strftime("%d %b %Y")%> </i></p>
+		    <p> <%= announcement.user.first_name%> <%= announcement.user.last_name %> </p>
+		    <p> <%= announcement.announcement%> </p>
 		<% end %>
 	    <% end %>
 	</div>

@@ -1,5 +1,8 @@
-<h1> New announcement </h1>
+<div class = "panel panel-default">
+    <h2 class = "text-center"> New announcement </h2>
+    <div class = 'panel-body'>
+	<%= render 'form', announcement: @announcement %>
 
-<%= render 'form', announcement: @announcement %>
+    </div>
 
-<%= link_to 'Back', group(@group) %>
+</div>
