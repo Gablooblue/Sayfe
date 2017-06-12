@@ -4,7 +4,8 @@ class AnnouncementsController < ApplicationController
     # GET /announcements
     # GET /announcements.json
     def index
-	@announcements = Announcement.all
+	@group = Group.find(params[:group_id])
+	@announcements = Announcement.all.order('created_at DESC').page params[:page]
     end
 
     # GET /announcements/1
@@ -28,7 +29,7 @@ class AnnouncementsController < ApplicationController
 
 	respond_to do |format|
 	    if @announcement.save
-		format.html { redirect_to group_path(params[:id]), notice: 'Announcement was successfully created.' }
+		format.html { redirect_to @announcement, notice: 'Announcement was successfully created.' }
 		format.json { render :show, status: :created, location: @announcement }
 	    else
 		format.html { render :new }

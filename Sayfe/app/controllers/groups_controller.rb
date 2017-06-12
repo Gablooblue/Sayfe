@@ -8,6 +8,7 @@ class GroupsController < ApplicationController
 
     def show
 	@members = User.in_group(set_group)
+	@announcements = @group.announcements.order('created_at DESC').limit(5)
     end
 
     def new

@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 20170605065343) do
     t.integer  "user_id"
     t.string   "intensity"
     t.text     "desc"
-    t.decimal  "longtitude"
+    t.decimal  "longitude"
     t.decimal  "latitude"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

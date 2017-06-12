@@ -7,7 +7,7 @@ class PostsController < ApplicationController
 	@posts = Post.all
 	@hash = Gmaps4rails.build_markers(@posts) do |post, marker|
 	    marker.lat post.latitude
-	    marker.lng post.longtitude
+	    marker.lng post.longitude
 	end
     end
 
@@ -73,6 +73,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-	params.require(:post).permit(:disaster_id, :user_id, :intensity, :desc, :longtitude, :latitude)
+	params.require(:post).permit(:disaster_id, :user_id, :intensity, :desc, :longitude, :latitude)
     end
 end

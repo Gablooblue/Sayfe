@@ -33,16 +33,17 @@
 	    <p class = "text-center"><%= link_to "Make an announcement", new_announcement_path(id: @group.id, user: current_user.id) %>
 	</div>
 	<div class ="panel-body">
-	    <% if @group.announcements.blank? %>
+	    <% if @announcements.blank? %>
 		<h4 class = "text-center"><i>No announcements</i></h4>
 	    <% else %>
-		<% @group.announcements.each do |announcement| %>
+		<% @announcements.each do |announcement| %>
 		    <h4> <%= announcement.title %> </h4>
-		    <p> <i><%= announcement.created_at.strftime("%d %b %Y")%> </i></p>
+		    <p> <i><%= announcement.created_at.strftime("%H %M %S")%> </i></p>
 		    <p> <%= announcement.user.first_name%> <%= announcement.user.last_name %> </p>
 		    <p> <%= announcement.announcement%> </p>
 		<% end %>
 	    <% end %>
+	    <%= link_to "View more", group_announcements_path(@group) %>
 	</div>
     </div>
 </div>

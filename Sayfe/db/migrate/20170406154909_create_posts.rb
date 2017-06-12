@@ -5,7 +5,7 @@ class CreatePosts < ActiveRecord::Migration[5.0]
       t.integer :user_id
       t.string :intensity
       t.text :desc
-      t.decimal :longtitude
+      t.decimal :longitude
       t.decimal :latitude
 
       t.timestamps

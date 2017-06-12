@@ -1,0 +1,13 @@
+<div class = "panel panel-default">
+    <h3 class = 'text-center'>Announcements</h3>
+    <div class = "panel-body">
+    <p><%= link_to "Back to "+  @group.name, group_path(@group)%></p>
+	<% @announcements.each do |announcement| %>
+	    <h3><%= announcement.title %> </h3>
+	    <p>Posted on <%= announcement.created_at.strftime("%d %b %Y") %>
+	    by <%= link_to announcement.user.first_name, account_path(id: announcement.user.id) %></p>
+	    <p><%= announcement.announcement%></p>
+	<% end %>
+	<h5 class = "text-center"><%= paginate @announcements %></h2>
+    </div>
+</div>
