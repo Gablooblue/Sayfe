@@ -13,7 +13,6 @@
 	<% else %>
 	    <% @results.each do |result| %>
 		<h4><%= link_to  result.email, account_path(id: result) %> <h4>
-			<%= link_to "Add", friendships_path(friend_id: result), method: :post%>
 		<hr>
 	    <% end %>
 	<% end %>

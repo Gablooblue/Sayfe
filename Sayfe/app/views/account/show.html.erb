@@ -42,10 +42,7 @@
 		<% else %>
 		    <div class = "list-group">
 			<% @user.friends.each do |friend| %>
-			    <a href = "#" class = "list-group-item list-group-item-action">
-				<%= friend.first_name %>
-				<%= friend.last_name %>
-			    </a >
+				<%= link_to friend.first_name + " " + friend.last_name, account_path(friend), class: "list-group-item list-group-item-action" %>
 			<% end %>
 		    </div>
 		<% end %>	
