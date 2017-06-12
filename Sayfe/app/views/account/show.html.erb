@@ -1,7 +1,15 @@
     <div class = "col-md-12">
 	<div class = "panel panel-default">
 	    <div class = "panel-body">
-		<h3><%= @user.first_name %> <%= @user.last_name %> </h3>
+		<h3 class = "text-center"><%= @user.first_name %> <%= @user.last_name %> </h3>
+		<% if @user != current_user %>
+		    <% if current_user.friends.include?(@user) %>
+			<p class = "text-center"><%= link_to "Check safety", safety_checks_path(receiver_id: @user), method: :post %></p>
+		    <% else %>
+			<p class = "text-center"><%= link_to "Add friend", friendships_path(friend_id: @user), method: :post %> </p>
+		    <% end %>
+		<% end %>
+
 	    </div>
 	</div>
     </div>
@@ -16,9 +24,7 @@
 		<% else %>
 		    <div class = "list-group">
 			<% @user.groups.each do |group| %>
-			    <a href= "#"class = "list-group-item list-group-item-action">
-				<%= group.name %>
-			    </a>
+				<%= link_to group.name , group_path(group), class: "list-group-item list-group-item-action"%>
 			<% end %>
 		    </div>
 		<% end %>

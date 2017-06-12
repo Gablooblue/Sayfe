@@ -59,11 +59,11 @@
 	    <% if @user_results.blank? %>
 		<h4 class = "text-center">No responses yet</h4>
 	    <% else %>
+		<ul class = "list-group">
 		<% @user_results.each do |result| %>
-		    <ul class = "list-group">
-			<li class = "list-group-item"><%= link_to result.user.first_name, account_path(id: result.user.id) %> responded with <%= result.res %></li>
-		    </ul>
+			<li class = "list-group-item"><%= link_to result.receiver.first_name, account_path(id: result.receiver.id) %> responded with <%= result.res %></li>
 		<% end %>
+		</ul>
 	    <% end %>
 	</div>
     </div>
