@@ -4,7 +4,10 @@
 		<h3 class = "text-center"><%= @user.first_name %> <%= @user.last_name %> </h3>
 		<% if @user != current_user %>
 		    <% if current_user.friends.include?(@user) %>
-			<p class = "text-center"><%= link_to "Check safety", safety_checks_path(receiver_id: @user), method: :post %></p>
+			<p class = "text-center"><%= link_to "Check safety", safety_checks_path(receiver_id: @user), method: :post %>
+			<%= link_to "Remove friend", friendship_path(friend_id: @user), method: :delete%>
+		    <% elsif current_user.requests.include?(@user) %>
+			<p class = "text-center">Friend request sent </p>
 		    <% else %>
 			<p class = "text-center"><%= link_to "Add friend", friendships_path(friend_id: @user), method: :post %> </p>
 		    <% end %>
@@ -18,9 +21,9 @@
 	    <h3 class = "text-center">Groups (<%= @user.groups.count %>)</h3>
 	    <div class = "panel-body">
 		<% if @user.groups.blank? %>
-		    <h4 class = "text-center"><i>
+		    <h4 class = "text-center">
 			User hasn't joined any groups 
-		</i> </h4>
+		    </h4>
 		<% else %>
 		    <div class = "list-group">
 			<% @user.groups.each do |group| %>
@@ -36,9 +39,9 @@
 	    <h3 class ="text-center">Friends (<%= @user.friends.count %>)</h3>
 	    <div class = "panel-body">
 		<% if @user.friends.blank? %>
-		    <h4 class = "text-center"><i>
+		    <h4 class = "text-center">
 			User hasn't added any friends
-		    </i></h4>
+		    </h4>
 		<% else %>
 		    <div class = "list-group">
 			<% @user.friends.each do |friend| %>
