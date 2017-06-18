@@ -70,3 +70,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #Pagination
 gem 'kaminari'
+
+#React 
+gem "react-rails", github: "reactjs/react-rails"
+
+#Search 
+gem "ransack"
