@@ -2,12 +2,8 @@
     <h3 class = 'text-center'>Announcements</h3>
     <div class = "panel-body">
 	<p><%= link_to "Back to "+  @group.name, group_path(@group)%></p>
-	<% @announcements.each do |announcement| %>
-	    <h3><%= announcement.title %> </h3>
-	    <p>Posted on <%= friendly_created_date announcement%>
-	    by <%= link_to announcement.user.first_name, account_path(id: announcement.user.id) %></p>
-	    <p><%= announcement.announcement%></p>
-	<% end %>
+	<%= react_component "AnnouncementContainer",
+	    announcementsPath: group_announcements_path(@group) %>
 	<h5 class = "text-center"><%= paginate @announcements %></h5>
     </div>
 </div>

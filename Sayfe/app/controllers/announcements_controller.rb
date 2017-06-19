@@ -5,7 +5,7 @@ class AnnouncementsController < ApplicationController
     # GET /announcements.json
     def index
 	@group = Group.find(params[:group_id])
-	@announcements = Announcement.where("id = ?", @group.id).order('created_at DESC').page params[:page]
+	@announcements = Announcement.where("group_id = ?", @group.id).order('created_at DESC').page params[:page]
     end
 
     # GET /announcements/1

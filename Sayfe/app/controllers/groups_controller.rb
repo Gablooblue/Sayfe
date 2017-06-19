@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
     def show
 	@members = User.in_group(set_group)
 	@results = GroupCheck.result(@group).order('updated_at DESC')
-	@announcements = @group.announcements.order('created_at DESC').limit(5)
+	@announcements = Announcement.where("group_id = ?", @group.id).order('created_at DESC').page params[:page]
     end
 
     def new

@@ -1,3 +1,4 @@
+<%= render "layouts/search" %>
 <div class = "panel panel-default">
     <div class = "nav nav-tabs">
 	<li class = "nav-item">
@@ -12,7 +13,7 @@
 	    <h4 class = "text-center"><i>No results found</i></h4>
 	<% else %>
 	    <% @results.each do |result| %>
-		<h4><%= link_to  result.email, account_path(id: result) %> <h4>
+		<h4><%= link_to  result.first_name, account_path(id: result) %> <h4>
 		<hr>
 	    <% end %>
 	<% end %>
