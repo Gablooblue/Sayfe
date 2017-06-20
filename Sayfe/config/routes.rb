@@ -29,7 +29,9 @@ Rails.application.routes.draw do
 	list_only.resources :home
     end
 
-    resources :users, only: [:index, :show]
+    resources :users, only: [:index, :show] do
+	get 'groups'
+    end
 
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     root 'splash#index'

@@ -1,2 +1,2 @@
 json.extract! group, :id, :name, :desc 
-json.url group_url(group, format: :json)
+json.url group_url(group )

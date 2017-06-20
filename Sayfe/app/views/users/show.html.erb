@@ -22,19 +22,18 @@
 	<div class = "panel-heading" id = "panel-heading">
 	    <h4 class = "text-center">Groups (<%= @user.groups.count %>)</h3>
 	</div>
-	<div class = "panel-body">
-	    <% if @user.groups.blank? %>
+	<% if @user.groups.blank? %>
+	    <div class = "panel-body">
 		<h4 class = "text-center">
 		    User hasn't joined any groups 
 		</h4>
-	    <% else %>
-		<div class = "list-group">
-		    <% @user.groups.each do |group| %>
-			<%= link_to group.name , group_path(group), class: "list-group-item list-group-item-action"%>
-		    <% end %>
-		</div>
-	    <% end %>
-	</div>
+	    </div>
+	<% else %>
+	    <div class = "list-group">
+		<%= react_component "GroupsContainer",
+		    groupsPath: user_groups_path(@user)%>
+	    </div>
+	<% end %>
     </div>
 </div>
 <div class = "col-md-6">
