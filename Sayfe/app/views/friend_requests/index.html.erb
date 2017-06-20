@@ -1,18 +1,13 @@
 <div class = "panel default-panel">
     <h4 class = "text-center">Friend requests</h4>
-    <div class = "panel-body">
-	<% if @friend_reqs.blank? %>
+    <% if @friend_reqs.blank? %>
+	<div class = "panel-body">
 	    <h4 class = "text-center">You have no pending friend requests</h4>
-	<% else %>
-	    <ul>
-		<% @friend_reqs.each do |request| %>
-		<li> 
-		    <%= request.first_name %>
-		    <%= link_to "Accept", friendship_path(id: request.id), method: :put %>
-		    <%= link_to "Delete friend request", friendship_path(id: request.id), method: :delete %>
-		</li>
-	    </ul>
-	    <% end %>
-	<% end %>
-    </div>
+	</div>
+    <% else %>
+	<ul class = "list-group">
+	    <%= react_component "FriendRequestsContainer",
+		requestsPath: friend_requests_path() %>
+	</ul>
+    <% end %>
 </div>

@@ -13,7 +13,7 @@ class UsersContainer extends React.Component
     componentWillMount()
     {
 	this.fetchUsers();
-	this.interval = setInterval (() => this.fetchUsers, 1000);
+	this.interval = setInterval (() => this.fetchUsers, 10000);
     }
 
     fetchUsers()

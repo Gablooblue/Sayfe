@@ -12,7 +12,7 @@
     <% else %>
 	<div class = "list-group">
 	    <%= react_component "UsersContainer",
-	    usersUrl: friendships_path() %>
+	    usersUrl: friendship_path(current_user) %>
 	</div>
     <% end %>
 </div>

@@ -22,7 +22,14 @@ class Friendship < ApplicationRecord
     end
 
     def inverse_friendship_options
-	{ friend_id: user_id, user_id: friend_id }
+	{ friend_id: user_id, user_id: friend_id, confirmed: true }
     end
 
+    scope :target, -> (user) do
+	where("friendships.friend_id = ? AND confirmed = ?", user.id, false)
+    end
+
+    scope :sent, -> (user) do
+	where("friendships.user_id = ? AND confirmed = ?", user.id, false)
+    end
 end

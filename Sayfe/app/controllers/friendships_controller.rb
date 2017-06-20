@@ -24,7 +24,7 @@ class FriendshipsController < ApplicationController
     end
 
     def update 
-	@friendship = Friendship.find_by(user_id: params[:id])
+	@friendship = Friendship.find(params[:id])
 	@friendship.update(confirmed: true) 
 
 	respond_to do |format|
@@ -40,11 +40,20 @@ class FriendshipsController < ApplicationController
     end
 
     def destroy
-	@friendship = Friendship.find_by(user_id: params[:id])
+	@friendship = Friendship.find(params[:id])
 	@friendship.destroy
 
 	respond_to do |format|
 	    format.html {redirect_to :back, notice: "Deleted"}	
+	    format.json { head :no_content}
+	end
+    end
+
+    def unfriend
+	@friendship = Friendship.where(user_id: params[:user_id], friend_id: params[:friendship_id]).first
+	@friendship.destroy
+	respond_to do |format|
+	    format.html {redirect_to :back, notice: "Unfriended"}	
 	    format.json { head :no_content}
 	end
     end
