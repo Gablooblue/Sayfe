@@ -1,13 +1,13 @@
 class GroupsController < ApplicationController
     before_action :authenticate_user!
     before_action :set_group, only: [:show, :edit, :update, :destroy, :check_group]
+    before_action :set_members, only: [:show, :check_group]
 
     def index
 	@groups = Group.with_member(current_user)
     end
 
     def show
-	@members = User.in_group(set_group)
 	@results = GroupCheck.result(@group).order('updated_at DESC')
 	@announcements = Announcement.where("group_id = ?", @group.id).order('created_at DESC').page params[:page]
     end
@@ -31,7 +31,6 @@ class GroupsController < ApplicationController
     end
 
     def check_group
-	@members = User.in_group(set_group)
 
 	@members.each do |member|
 		GroupCheck.create(group_id: params[:id], receiver_id: member.id)
@@ -42,6 +41,10 @@ class GroupsController < ApplicationController
 	    format.html {redirect_to @group, notice: "Group checked"}
 	    format.json {render :back, status: :created}
 	end
+    end
+
+    def set_members
+	@members = User.in_group(set_group)
     end
 
     def group_params

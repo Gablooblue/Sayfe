@@ -2,6 +2,6 @@
     <div class = "panel-body">
 	<p><%= link_to "Back to " + @announcement.group.name, group_path(@announcement.group.id) %>
 	<%= react_component "Announcement",
-	    announcement:  @announcement, user: @announcement.user %>
+	    announcement:  @announcement_json %>
     </div>
 </div>

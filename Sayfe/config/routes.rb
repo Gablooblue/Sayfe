@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 	collection do
 	    get :check_group
 	end
+	resources :members, only: [:index, :show]
     end
 
     resources :account, only: :show
@@ -27,6 +28,8 @@ Rails.application.routes.draw do
 	list_only.resources :results
 	list_only.resources :home
     end
+
+    resources :users, only: [:index, :show]
 
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     root 'splash#index'

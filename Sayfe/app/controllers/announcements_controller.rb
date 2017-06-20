@@ -11,6 +11,7 @@ class AnnouncementsController < ApplicationController
     # GET /announcements/1
     # GET /announcements/1.json
     def show
+	@announcement_json = @announcement.as_json.merge({user: @announcement.user.as_json})
     end
 
     # GET /announcements/new

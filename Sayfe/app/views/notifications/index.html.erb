@@ -9,7 +9,7 @@
 		    <% @safety_queries.each do |query| %>
 		    <li class = "list-group-item">
 			<% if query.respond_to?(:user) %>
-			    <%= link_to query.user.first_name, account_path(id: query.user.id) %> 
+			    <%= link_to query.user.first_name, user_path(id: query.user.id) %> 
 			    wants to know if you're safe
 			    <%= link_to "I'm safe", safety_check_path(id: query.id, res: "safe"), method: :put %>
 			    <%= link_to "I need help", safety_check_path(id: query.id, res: "danger"), method: :put%>
@@ -36,7 +36,7 @@
 	    <% else %>
 		<ul class = "list-group">
 		<% @user_results.each do |result| %>
-			<li class = "list-group-item"><%= link_to result.receiver.first_name, account_path(id: result.receiver.id) %> responded with <%= result.res %></li>
+			<li class = "list-group-item"><%= link_to result.receiver.first_name, user_path(id: result.receiver.id) %> responded with <%= result.res %></li>
 		<% end %>
 		</ul>
 	    <% end %>
