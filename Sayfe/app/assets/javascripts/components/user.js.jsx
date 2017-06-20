@@ -2,6 +2,7 @@ class User extends React.Component
 {
     render()
     {
-	return <div><li className = "list-group-item">{this.props.user.first_name} {this.props.user.last_name}</li></div>
+    var user = this.props.user;
+	return <div><a href= {user.url} className = "list-group-item">{user.first_name} {user.last_name}</a></div>
     }
 }

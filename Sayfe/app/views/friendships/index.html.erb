@@ -5,19 +5,14 @@
 </div>
 
 <div class = "panel panel-default">
-    <div class = "panel-body">
-	<% if @friends.blank? %>
+    <% if @friends.blank? %>
+	<div class = "panel-body">
 	    <h4 class = "text-center">You don't seem to have any friends</h4>
-	<% else %>
-	    <% @friends.each do |friend| %>
-		<div class = "col-md-6">
-		    <div class = "panel panel-default">
-			<div class = "panel-body">
-			    <h4><%= link_to friend.first_name + " " + friend.last_name, user_path(friend.id) %></h4>
-			</div>
-		    </div>
-		</div>
-	    <% end %>
-	<% end %>
-    </div>
+	</div>
+    <% else %>
+	<div class = "list-group">
+	    <%= react_component "UsersContainer",
+	    usersUrl: friendships_path() %>
+	</div>
+    <% end %>
 </div>

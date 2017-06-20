@@ -5,6 +5,11 @@ class FriendshipsController < ApplicationController
 	@friends = current_user.friends
     end
 
+    def show
+	@user = User.find(params[:id])
+	@friends = @user.friends 
+    end
+
     def create
 	@friendship = current_user.friendships.build(friend_id: params[:friend_id])
 	respond_to do |format|

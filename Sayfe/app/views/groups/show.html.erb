@@ -16,10 +16,10 @@
 	<div class = "panel-body">
 	    <%= link_to "Check if group is safe", check_group_groups_path(id: @group.id), class: "btn btn-link" %>
 	</div>
-	<ul class="list-group">
+	<div class="list-group">
 		<%= react_component "UsersContainer", 
 			{ usersPath: group_members_path(@group) } %>
-	</ul>
+	</div>
     </div>
 </div>
 <% if !@results.blank? %>

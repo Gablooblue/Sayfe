@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
     resources :group_invites
     resources :announcements
-    resources :friendships, only: [:index, :create, :update, :destroy]
+    resources :friendships, only: [:index, :show, :create, :update, :destroy]
     devise_for :users, controllers:{
 	registrations: 'users/registrations',
 	sessions: 'users/sessions'
