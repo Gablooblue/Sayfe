@@ -7,7 +7,7 @@
 <div class = "panel panel-default">
 
     <ul class = "list-group">
-	<%= react_component "Users",
-	    users: @members %>
+	<%= react_component "UsersContainer",
+	    usersPath: group_members_path(@group) %>
     </ul>
 </div>

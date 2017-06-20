@@ -1,36 +1,36 @@
-class MembersContainer extends React.Component
+class UsersContainer extends React.Component
 {
     constructor(props)
     {
 	super(props)
 	this.state = 
 	{
-	    members: []
+	    users: []
 	}
-	this.fetchMembers = this.fetchMembers.bind(this);
+	this.fetchUsers = this.fetchUsers.bind(this);
     }
 
     componentWillMount()
     {
-	this.fetchMembers();
-	this.interval = setInterval (() => this.fetchMembers, 1000);
+	this.fetchUsers();
+	this.interval = setInterval (() => this.fetchUsers, 1000);
     }
 
-    fetchMembers()
+    fetchUsers()
     {
 	$.getJSON
 	(
-	    this.props.membersPath,
-	    (data) => this.setState ({members: data})
+	    this.props.usersPath,
+	    (data) => this.setState ({users: data})
 	);
     }
 
     render()
     {
-	return <Users users = {this.state.members}/>
+	return <Users users = {this.state.users}/>;
     }
     
-    componentWillUnmount
+    componentWillUnmount()
     {
 	clearInterval(this.interval);
     }
