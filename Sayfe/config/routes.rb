@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :disasters
     resources :groups do
 	resources :announcements
+	post :add_member
 	collection do
 	    get :check_group
 	end

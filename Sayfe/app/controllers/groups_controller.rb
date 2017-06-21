@@ -30,6 +30,13 @@ class GroupsController < ApplicationController
 	end
     end
 
+    def add_member
+	@user = User.find(params[:user_id])
+	@group = Group.find(params[:group_id])
+	@group.add @user
+	redirect_to :back
+    end
+
     def check_group
 
 	@members.each do |member|
@@ -42,6 +49,8 @@ class GroupsController < ApplicationController
 	    format.json {render :back, status: :created}
 	end
     end
+
+    private 
 
     def set_members
 	@members = User.in_group(set_group)
