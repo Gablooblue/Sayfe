@@ -1,7 +1,7 @@
 {
-  "name": "sayfeapp",
+  "name": "Sayfe",
   "version": "0.0.0",
-  "description": "Hello Expo!",
+  "description": "Your disaster buddy",
   "author": null,
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {

@@ -1,8 +1,14 @@
+<%= render 'layouts/search' %>
 <div class = "panel panel-default">
-    <div class = 'panel-body'>
-	<ul>
-	<%= react_component "Users",
-	    users: @users %>
+    <h4 class = "text-center">Results</h4>
+    <% if @users.blank? %>
+	<div class = 'panel-body'>
+	    <h5 class = "text-center">No users found</h5>
+	</div>
+    <% else %>
+	<ul class = "list-group">
+	    <%= react_component "Users",
+		users: @users %>
 	</ul>
-    </div>
+    <% end %>
 </div>
