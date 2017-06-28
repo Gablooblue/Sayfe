@@ -35,18 +35,8 @@ export default class HomeScreen extends React.Component {
             {this._maybeRenderDevelopmentModeWarning()}
 
             <Text style={styles.getStartedText}>
-              Get started by opening
+		Fuck me daddy
             </Text>
-
-            <View
-              style={[
-                styles.codeHighlightContainer,
-                styles.homeScreenFilename,
-              ]}>
-              <MonoText style={styles.codeHighlightText}>
-                screens/HomeScreen.js
-              </MonoText>
-            </View>
 
             <Text style={styles.getStartedText}>
               Change this text and your app will automatically reload.

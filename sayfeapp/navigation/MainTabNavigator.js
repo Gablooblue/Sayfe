@@ -11,14 +11,15 @@ import Colors from '../constants/Colors';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import LoginScreen from '../screens/Auth/LoginScreen';
 
 export default TabNavigator(
   {
     Home: {
       screen: HomeScreen,
     },
-    Links: {
-      screen: LinksScreen,
+    Login: {
+      screen: LoginScreen,
     },
     Settings: {
       screen: SettingsScreen,
@@ -34,11 +35,11 @@ export default TabNavigator(
           case 'Home':
             iconName = 'home';
             break;
-          case 'Links':
+          case 'Login':
             iconName = 'book';
             break;
           case 'Settings':
-            iconName = 'cog';
+            iconName = 'book';
         }
         return (
           <FontAwesome
