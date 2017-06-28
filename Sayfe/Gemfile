@@ -76,3 +76,9 @@ gem "react-rails", github: "reactjs/react-rails"
 
 #Search 
 gem "ransack"
+
+#Image and file uploading
+gem "paperclip", "~> 5.0.0"
+
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+

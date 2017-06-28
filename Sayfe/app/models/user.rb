@@ -46,4 +46,7 @@ class User < ApplicationRecord
   has_many :safety_checks
   has_many :group_checks
 
+  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>", small: "32x32>", tiny: "16x16>" }, default_url: "/assets/:style/missing.gif"
+  validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+
 end
