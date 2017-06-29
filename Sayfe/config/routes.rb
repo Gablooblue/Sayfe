@@ -16,7 +16,9 @@ Rails.application.routes.draw do
     } 
 
     namespace :api do
-	mount_devise_token_auth_for 'User', at: 'auth' 
+	scope :v1 do
+	    mount_devise_token_auth_for 'User', at: 'auth' 
+	end
     end
     resources :posts 
     resources :disasters 
