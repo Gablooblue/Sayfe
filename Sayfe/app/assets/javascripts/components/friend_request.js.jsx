@@ -32,7 +32,7 @@ class FriendRequest extends React.Component
 	var request = this.props.friend_request;
 	var user = request.user;
 	return <div>
-		<li className = "list-group-item">
+		<li>
 		    <a href = {user.url}>
 			{user.first_name}
 		    </a> wants to add you as a friend <br />

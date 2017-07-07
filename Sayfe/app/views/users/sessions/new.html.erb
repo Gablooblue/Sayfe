@@ -1,45 +1,47 @@
-<div class = "panel panel-default" id="panel-default-border"> 
-    <h2 class = "text-center">Log in</h2>
+<div class = "col-md-8 col-md-offset-2">
+    <div class = "panel panel-default" id="panel-default-border">
 
-    <div class = "panel-body">
-	<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form-horizontal center" }) do |f| %>
-	    <%= devise_error_messages! %>
-	    <div class="form-group">
-		<%= f.label :email, class: "col-md-4 control-label" %>
-		<div class = "col-md-5">
-		    <%= f.email_field :email, class: "form-control", autofocus: true %>
-		</div>
-	    </div>
-
-	    <div class="form-group">
-		<%= f.label :password, class: "col-md-4 control-label" %>
-		<div class = "col-md-5">
-		    <%= f.password_field :password, autocomplete: "off", class:"form-control"%>
-		</div>
-	    </div>
-
-	    <% if devise_mapping.rememberable? -%>
+	<div class = "panel-body">
+	    <p class = "text-center"><%= link_to (image_tag 'sayfe-logo.png', size: '150x75'), splash_index_path() %></p>
+	    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form-horizontal center" }) do |f| %>
+		<%= devise_error_messages! %>
 		<div class="form-group">
+		    <%= f.label :email, class: "col-md-4 control-label" %>
+		    <div class = "col-md-6">
+			<%= f.email_field :email, class: "form-control", autofocus: true %>
+		    </div>
+		</div>
+
+		<div class="form-group">
+		    <%= f.label :password, class: "col-md-4 control-label" %>
+		    <div class = "col-md-6">
+			<%= f.password_field :password, autocomplete: "off", class:"form-control"%>
+		    </div>
+		</div>
+
+		<% if devise_mapping.rememberable? -%>
+		    <div class="form-group">
+			<div class = "col-md-offset-4 col-md-4">
+			    <%= f.check_box :remember_me  %>
+			    <%= f.label :remember_me, class:"control-label"%>
+			</div>
+		    </div>
+		<% end %>
+
+		<div class = "form-group">
+		    <div class="actions">
+			<div class ="col-md-offset-4 col-md-4">
+			    <%= f.submit "Log in", class: "btn btn-primary"%>
+			</div>
+		    </div>
+		</div>
+		<div class = "form-group">
 		    <div class = "col-md-offset-4 col-md-4">
-			<%= f.check_box :remember_me  %>
-			<%= f.label :remember_me, class:"control-label"%>
+			<%= render "users/shared/links" %>
 		    </div>
 		</div>
 	    <% end %>
 
-	    <div class = "form-group">
-		<div class="actions">
-		    <div class ="col-md-offset-4 col-md-4">
-			<%= f.submit "Log in", class: "btn btn-primary"%>
-		    </div>
-		</div>
-	    </div>
-	    <div class = "form-group">
-		<div class = "col-md-offset-4 col-md-4">
-		    <%= render "users/shared/links" %>
-		</div>
-	    </div>
-	<% end %>
-
+	</div>
     </div>
 </div>

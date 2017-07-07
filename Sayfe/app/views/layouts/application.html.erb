@@ -30,18 +30,22 @@
 			</div>
 		<div class= "collapse navbar-collapse"  id="navbar">
 			<ul class = "nav navbar-nav">
-			<div class = "col-md-6">
-			</div>
 			</ul>
 			<ul class = "nav navbar-nav navbar-right">	
 				    <% if !user_signed_in? %>
 					<li><%= link_to "Login", new_user_session_path %></li>
 					<li><%= link_to "Sign Up", new_user_registration_path %></li>
 				    <% else %>
-					<li>
-					    <%= link_to  friend_requests_path do %>
+					<li class = "dropdown">
+					    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 						<i class= "fa fa-users"></i>
-					    <%end %>
+						<span class = "caret"></span>
+					    </a>
+					    <ul class = "dropdown-menu">
+						<%= react_component "FriendRequestsContainer",
+						    requestsPath: friend_requests_path() %>
+					    </ul>
+					    
 					</li>
 					<li>
 					    <%= link_to notifications_path do %>

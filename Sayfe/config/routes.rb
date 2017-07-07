@@ -43,6 +43,8 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show] do 
 	get 'groups'
     end
+
+    resources :splash, only: [:index]
  
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html 
     root 'splash#index' 

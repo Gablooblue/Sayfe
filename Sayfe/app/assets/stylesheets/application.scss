@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Droid+Sans|Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 @import "bootstrap/variables";
 @import "font-awesome";
@@ -38,6 +39,12 @@
   background-color:#FFFFFF;  
   border-bottom-color:$color-blue-main;
   color:$color-blue-main;
+}
+
+#panel-solid-blue
+{
+    background-color: $color-blue-main;
+    color: #FFFFFF;
 }
 
 #darken li > a
