@@ -1,12 +1,12 @@
-<% current_user.friends.each do |friend | %>
-    <% if !friend.in_group?(@group) %>
-	<ul class = "list-group">
+<ul class = "list-group">
+    <% current_user.friends.each do |friend | %>
+	<% if !friend.in_group?(@group) %>
 	    <li class = "list-group-item">
 		<%= link_to friend.first_name + " " + friend.last_name, user_path(friend) %>
 		<div class = "pull-right">
 		    <%= link_to "Add to group", group_add_member_path(@group, user_id: friend), method: :post %>
 		</div>
 	    </li>
-	</ul>
+	<% end %>
     <% end %>
-<% end %>
+</ul>

@@ -9,8 +9,11 @@
 	    <h4 class = "text-center">No users found</h5>
 	</div>
     <% else %>
-	<%= react_component "UsersContainer",
-	    usersPath: users_path() %>
+	<% @results.each do |result| %>
+	    <div class = "list-group">
+		<%= link_to (result.first_name + " " + result.last_name), user_path(result), class: "list-group-item"%>
+	    </div>
+	<% end %>
     <% end %>
 </div>
 </div>

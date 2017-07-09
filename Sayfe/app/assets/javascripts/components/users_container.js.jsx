@@ -32,7 +32,12 @@ class UsersContainer extends React.Component
 	if(loading)
 	    return <Loading/>;
 	else
-	    return <Users users = {this.state.users}/>;
+	{
+	    if(!this.state.users.length)
+		return <div><h5 className = "text-center">No users</h5></div>
+	    else
+		return <Users users = {this.state.users}/>;
+	}
     }
     
     componentWillUnmount()
