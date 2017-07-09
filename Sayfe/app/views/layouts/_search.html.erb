@@ -1,18 +1,14 @@
 <%= search_form_for @q  do |f| %>
     <div class = "col-md-12">
-    <div class = "panel panel-default">
-	<div class = "panel-body">
-	    <div class = "col-md-6">
-		<div class = "form-group">
-		    <%= f.search_field "first_name_or_last_name_cont", class: "form-control" %>
-		</div>
+	<div class = "col-md-6">
+	    <div class = "form-group">
+		<%= f.search_field "first_name_or_last_name_cont", class: "form-control", placeholder: "Search for users" %>
 	    </div>
-	    <div class = "col-md-2">
-		<div class = "form-group">
-		    <%= f.submit class: "btn btn-info"%>
-		</div>
+	</div>
+	<div class = "col-md-2">
+	    <div class = "form-group">
+		<%= f.submit class: "btn btn-info"%>
 	    </div>
 	</div>
     </div>
-</div>
 <% end %>
