@@ -5,6 +5,7 @@ class AnnouncementContainer extends React.Component
 	super(props)
 	this.state =
 	{
+	    loading: true,
 	    announcements: []
 	}
 	this.fetchAnnouncements = this.fetchAnnouncements.bind(this);
@@ -20,7 +21,7 @@ class AnnouncementContainer extends React.Component
     {
 	$.getJSON(
 	    this.props.announcementsPath,
-	    (data) => this.setState({announcements: data})
+	    (data) => this.setState({announcements: data, loading: false})
 	);
     }
     
@@ -31,7 +32,11 @@ class AnnouncementContainer extends React.Component
 
 
     render() {
-	return <Announcements announcements={this.state.announcements} />;
+	const { loading } = this.state;
+	if(loading)
+	    return <Loading/>
+	else
+	    return <Announcements announcements={this.state.announcements} />;
     }
 
     componentWillUnmount()

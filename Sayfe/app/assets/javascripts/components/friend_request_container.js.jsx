@@ -5,7 +5,8 @@ class FriendRequestsContainer extends React.Component
 	super(props)	
 	this.state =
 	{
-	    requests: []
+	    requests: [],
+	    loading: true
 	}
 	this.fetchRequests = this.fetchRequests.bind(this);
     }
@@ -20,14 +21,24 @@ class FriendRequestsContainer extends React.Component
     {
 	$.getJSON(
 	    this.props.requestsPath,
-	    (data) => this.setState({requests: data})
+	    (data) => this.setState({requests: data, loading: false})
 	);
     }
 
     render()
     {
-	console.log(this.state.requests);
-	return <FriendRequests friend_requests= {this.state.requests} />;
+	const { loading } = this.state;
+	if(loading)
+	{
+	    return <Loading/>
+	}
+	else
+	{
+	    if(!this.state.requests.length)
+		return <div><p className = "text-center">No pending friend requests </p></div>
+	    else
+		return <FriendRequests friend_requests= {this.state.requests} />;
+	}
     }
 
     componentWillUnmount()

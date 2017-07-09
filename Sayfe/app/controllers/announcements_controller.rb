@@ -62,6 +62,15 @@ class AnnouncementsController < ApplicationController
 	    format.json { head :no_content }
 	end
     end
+    
+    def target
+	@groups = current_user.groups
+	@announcements = []
+	@groups.each do |group|
+	    @announcements = group.announcements << @announcements
+	end
+	@announcements.sort_by(&:updated_at)
+    end
 
     private
     # Use callbacks to share common setup or constraints between actions.

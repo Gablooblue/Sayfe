@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 	@user = User.find(params[:user_id])
 	@groups = @user.groups
     end
-
+    
     private 
 
     def set_user

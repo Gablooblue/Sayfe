@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     resources :safety_checks, only: [:create, :update, :destroy] 
  
     resources :group_invites 
-    resources :announcements 
+    resources :announcements do
+	get :target
+    end
     resources :friendships, only: [:index, :show, :create, :update, :destroy] do 
 	delete :unfriend 
     end 
@@ -45,6 +47,8 @@ Rails.application.routes.draw do
     end
 
     resources :splash, only: [:index]
+
+    resources :dashboard, only: [:index]
  
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html 
     root 'splash#index' 

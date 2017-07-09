@@ -5,6 +5,7 @@ class GroupsContainer extends React.Component
 	super(props)
 	this.state =
 	{
+	    loading: true,
 	    groups: []
 	}
 	this.fetchGroups = this.fetchGroups.bind(this);
@@ -16,18 +17,23 @@ class GroupsContainer extends React.Component
 	this.interval = setInterval (() => this.fetchGroups, 1000);
     }
 
+
     fetchGroups()
     {
 	$.getJSON
 	(
 	    this.props.groupsPath,
-	    (data) => this.setState({groups: data})
+	    (data) => this.setState({groups: data, loading: false})
 	);
     }
 
     render()
     {
-	return <Groups groups={this.state.groups}/>;
+	const { loading } = this.state;
+	if(loading)
+	    return <Loading/>
+	else
+	    return <Groups groups={this.state.groups}/>;
     }
 
     componentWillUnmount()

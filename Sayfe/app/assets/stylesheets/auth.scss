@@ -1,0 +1,11 @@
+@import "bootstrap/variables";
+
+body
+{
+  background: url(asset-path("bg-pattern.png")), $color-blue-main;
+  /* fallback for old browsers */
+  background: url(asset-path("bg-pattern.png")), -webkit-linear-gradient(to right, $color-blue-main, $color-yellow-main);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: url(asset-path("bg-pattern.png")), linear-gradient(to right, $color-blue-main, $color-yellow-main);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}

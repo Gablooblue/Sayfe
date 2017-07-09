@@ -5,7 +5,8 @@ class UsersContainer extends React.Component
 	super(props)
 	this.state = 
 	{
-	    users: []
+	    users: [],
+	    loading: true
 	}
 	this.fetchUsers = this.fetchUsers.bind(this);
     }
@@ -21,13 +22,17 @@ class UsersContainer extends React.Component
 	$.getJSON
 	(
 	    this.props.usersPath,
-	    (data) => this.setState ({users: data})
+	    (data) => this.setState ({users: data, loading: false})
 	);
     }
 
     render()
     {
-	return <Users users = {this.state.users}/>;
+	const {loading} = this.state;
+	if(loading)
+	    return <Loading/>;
+	else
+	    return <Users users = {this.state.users}/>;
     }
     
     componentWillUnmount()

@@ -1,0 +1,17 @@
+<ul class = "list-group">
+    <% safety_queries.each do |query| %>
+	<li class = "list-group-item">
+	    <% if query.respond_to?(:user) %>
+		<%= link_to query.user.first_name, user_path(id: query.user.id) %> 
+		wants to know if you're safe
+		<%= link_to "I'm safe", safety_check_path(id: query.id, res: "safe"), method: :put %>
+		<%= link_to "I need help", safety_check_path(id: query.id, res: "danger"), method: :put%>
+	    <% else %>
+		The group <%= link_to query.group.name, group_path(id: query.group.id) %>
+	    wants to know if you're safe
+	    <%= link_to "I'm safe", group_check_path(id: query.id, res: "safe"), method: :put %>
+	    <%= link_to "I need help", group_check_path(id: query.id, res: "danger"), method: :put%>
+	<% end %>
+    </li>
+<% end %>
+</ul>
