@@ -1,4 +1,6 @@
 class DashboardController < ApplicationController
+    before_action :authenticate_user!
+
     def index
 	@groups = Group.with_member(current_user)
 	@user_queries = SafetyCheck.target(current_user)
