@@ -8,52 +8,58 @@
     </div>
 </div>
 
-<div class = "col-md-6">
-    <div class = "panel panel-default" id="panel-border-top" >
-	<div class = "panel-heading" id="panel-heading">
-	    <h4 class = "text-center">Members</h4>
-	    <% if current_user.in_group?(@group) %>
-		<p class = "text-center">
-		    <button class = "btn btn-link" data-toggle="modal" data-target = "#invite_modal">Invite friends</button>
-		</p>
-	    <% end %>
-	</div>
 
-	<% if current_user.in_group?(@group) %>
-	    <div class = "panel-body">
-		    <div class = "text-center">
-			<%= link_to "Check if group is safe", check_group_groups_path(id: @group.id), class: "btn btn-primary" %>
+<div class = "col-md-4">
+    <div class = "column">
+	<div class = "panel panel-default" id="panel-border-top" >
+	    <div class = "panel-heading" id="panel-heading">
+		<h4 class = "text-center">Members
+		    <div class = "dropdown btn-group">
+			<button class= "btn btn-link dropdown-toggle" data-toggle= "dropdown" ><i class = "caret" style = "color:white;"></i></button>
+			<ul class = "dropdown-menu">
+			    <li><a href = '#' data-toggle="modal" data-target = "#invite_modal">Invite friends</a></li>
+			    <li> <%= link_to "Check if group is safe", check_group_groups_path(id: @group) %></li>
+			</ul>
 		    </div>
-	    </div>
-	<% end %>
-	<div class="list-group">
-		<%= react_component "UsersContainer", 
-			{ usersPath: group_members_path(@group) } %>
-	</div>
-    </div>
-</div>
-<% if !@results.blank? %>
-<div class = "col-md-6">
-    <div class = "panel panel-default" id = "panel-border-top">
-	<div class = "panel-heading" id = "panel-heading">
-	    <h4 class = "text-center">
-		Responses
-	    </h4>
-	</div>
-	<div class = "panel-body">
-	    <ul style = "list-style:none;">
-		<% @results.each do |result| %>
-		    <li> <%= result.receiver.first_name %> <%=result.receiver.last_name %> responded with <%= result.res %> - <i><%= friendly_updated_time result%></i></li>
+		</h4>
+		<% if current_user.in_group?(@group) %>
+		    <p class = "text-center">
+		    </p>
 		<% end %>
-	    </ul>
+	    </div>
+
+	    <% if current_user.in_group?(@group) %>
+		<div class = "panel-body">
+		    <div class = "text-center">
+			<%= link_to "Check if group is safe", check_group_groups_path(id: @group.id) %>
+		    </div>
+		</div>
+	    <% end %>
+	    <div class="list-group">
+		<%= react_component "UsersContainer", 
+		    { usersPath: group_members_path(@group) } %>
+	    </div>
 	</div>
     </div>
-</div>
-<div class = "col-md-12">
-
-<% else %>
-<div class = "col-md-6">
+    <% if !@results.blank? %>
+	<div class = "panel panel-default" id = "panel-border-top">
+	    <div class = "panel-heading" id = "panel-heading">
+		<h4 class = "text-center">
+		    Responses
+		</h4>
+	    </div>
+	    <div class = "panel-body">
+		<ul style = "list-style:none;">
+		    <% @results.each do |result| %>
+			<li> <%= result.receiver.first_name %> <%=result.receiver.last_name %> responded with <%= result.res %> - <i><%= friendly_updated_time result%></i></li>
+			<hr>
+		    <% end %>
+		</ul>
+	    </div>
+	</div>
 <% end %>
+    </div>
+<div class = "col-md-8">
     <div class = "panel panel-default " id= "panel-border-top">
 	<div class = "panel-heading" id="panel-heading">
 	    <div class = "dropdown">

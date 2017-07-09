@@ -36,7 +36,11 @@ class AnnouncementContainer extends React.Component
 	if(loading)
 	    return <Loading/>
 	else
+	{   
+	    if(!this.state.announcements.length)
+		return <div><h5 className="text-center">No announcements</h5></div>
 	    return <Announcements announcements={this.state.announcements} />;
+	}
     }
 
     componentWillUnmount()
