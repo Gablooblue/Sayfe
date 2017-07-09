@@ -1,6 +1,8 @@
 <div class = "col-md-6">
     <div class = "panel panel-default">
-	<h4 class = "text-center">Notifications</h4>
+	<div class = "panel-heading" id = "panel-heading">
+	    <h4 class = "text-center">Notifications</h4>
+	</div>
 	<div class = "panel-body">
 	    <% if @safety_queries.blank? %>
 		<h4 class = "text-center">You have no pending notifications</h4>
@@ -14,7 +16,9 @@
 
 <div class = "col-md-6">
     <div class = "panel panel-default">
-	<h4 class = "text-center">Responses</h4>
+	<div class = 'panel-heading' id = "panel-heading"> 
+	    <h4 class = "text-center">Responses</h4>
+	</div>
 	<div class = "panel-body">
 	    <% if @user_results.blank? %>
 		<h4 class = "text-center">No responses yet</h4>
