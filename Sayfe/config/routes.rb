@@ -35,22 +35,19 @@ Rails.application.routes.draw do
  
     resources :account, only: :show 
  
-    with_options only: :index do |list_only| 
-	list_only.resources :notifications 
-	list_only.resources :friend_requests 
-	list_only.resources :results 
-	list_only.resources :home 
+    with_options only: :index do |only| 
+	only.resources :notifications 
+	only.resources :friend_requests 
+	only.resources :results 
+	only.resources :map
+	only.resources :splash
+	only.resources :dashboard
+	only.resources :search
     end 
  
     resources :users, only: [:index, :show] do 
 	get 'groups'
     end
-
-    resources :splash, only: [:index]
-
-    resources :dashboard, only: [:index]
-
-    resources :search, only: [:index]
  
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html 
     root 'splash#index' 
